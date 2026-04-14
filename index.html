@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dragon Realm Demo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0%, #0f172a 55%, #020617 100%);
+      color: #e5e7eb;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+    h1 {
+      margin-bottom: 8px;
+      font-size: 42px;
+      color: #f8fafc;
+    }
+    .subtitle {
+      color: #cbd5e1;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 18px;
+    }
+    .card {
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+      backdrop-filter: blur(6px);
+    }
+    .dragon-card {
+      text-align: center;
+    }
+    .dragon-avatar {
+      width: 160px;
+      height: 160px;
+      margin: 8px auto 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fde68a 0%, #f97316 28%, #7c2d12 65%, #1e1b4b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      box-shadow: 0 0 30px rgba(249,115,22,.35);
+    }
+    .stat-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(30, 41, 59, 0.7);
+    }
+    .battle-card {
+      min-height: 620px;
+    }
+    .top-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .tower-badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(249,115,22,.14);
+      color: #fdba74;
+      font-weight: 700;
+    }
+    .arena {
+      display: grid;
+      grid-template-columns: 1fr 80px 1fr;
+      gap: 12px;
+      align-items: center;
+      margin: 24px 0;
+    }
+    .fighter {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(30, 41, 59, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      text-align: center;
+    }
+    .fighter-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 20px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px;
+      background: linear-gradient(135deg, rgba(251,191,36,.18), rgba(249,115,22,.32));
+    }
+    .enemy .fighter-avatar {
+      background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(168,85,247,.32));
+    }
+    .vs {
+      text-align: center;
+      font-size: 28px;
+      color: #fdba74;
+      font-weight: 800;
+    }
+    .hp-bar {
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #1e293b;
+      margin-top: 10px;
+    }
+    .hp-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #22c55e, #84cc16);
+      transition: width .25s ease;
+    }
+    .enemy .hp-fill {
+      background: linear-gradient(90deg, #ef4444, #f97316);
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 18px 0;
+    }
+    button {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button.secondary {
+      background: linear-gradient(135deg, #334155, #1e293b);
+    }
+    .loot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .loot-card {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(30, 41, 59, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+    }
+    .log {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(2, 6, 23, 0.55);
+      min-height: 120px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Dragon Realm Demo</h1>
+    <div class="subtitle">挂机 + 装备养成 + 无限爬塔 demo。你是驯龙师，开局只有一条龙，靠挂机战斗、装备掉落和属性成长不断向上爬塔。</div>
+
+    <div class="grid">
+      <div class="card dragon-card">
+        <h2>你的龙 Your Dragon</h2>
+        <div class="dragon-avatar">🐉</div>
+        <div id="dragonName">赤焰幼龙 Flame Wyrmling</div>
+        <div class="stat-list">
+          <div class="stat-row"><span>Level</span><strong id="dragonLevel">1</strong></div>
+          <div class="stat-row"><span>Attack</span><strong id="dragonAtk">12</strong></div>
+          <div class="stat-row"><span>HP</span><strong id="dragonHp">90</strong></div>
+          <div class="stat-row"><span>Defence</span><strong id="dragonDef">4</strong></div>
+          <div class="stat-row"><span>Gold</span><strong id="gold">0</strong></div>
+          <div class="stat-row"><span>Best Floor</span><strong id="bestFloor">1</strong></div>
+        </div>
+      </div>
+
+      <div class="card battle-card">
+        <div class="top-row">
+          <div>
+            <h2 style="margin:0;">Tower Clash</h2>
+            <div style="color:#cbd5e1; margin-top:6px;">卡牌/头像式对撞战斗，自动攻击，装备提升属性。</div>
+          </div>
+          <div class="tower-badge" id="floorText">Floor 1</div>
+        </div>
+
+        <div class="arena">
+          <div class="fighter player">
+            <div class="fighter-avatar">🐲</div>
+            <div id="playerName">Flame Wyrmling</div>
+            <div id="playerPower">Power 16</div>
+            <div class="hp-bar"><div id="playerHpFill" class="hp-fill"></div></div>
+            <div id="playerHpText">HP 90 / 90</div>
+          </div>
+          <div class="vs">VS</div>
+          <div class="fighter enemy">
+            <div class="fighter-avatar" id="enemyAvatar">👹</div>
+            <div id="enemyName">Tower Goblin</div>
+            <div id="enemyPower">Power 12</div>
+            <div class="hp-bar"><div id="enemyHpFill" class="hp-fill"></div></div>
+            <div id="enemyHpText">HP 70 / 70</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="startBtn">开始挂机 Start Auto Battle</button>
+          <button id="upgradeBtn" class="secondary">消耗 40 Gold 升级龙</button>
+          <button id="equipBtn" class="secondary">装备最好掉落 Auto Equip Best Loot</button>
+          <button id="nextBtn" class="secondary">下一层 Next Floor</button>
+        </div>
+
+        <div class="loot-grid">
+          <div class="loot-card">
+            <strong>Claw Relic</strong>
+            <div id="clawRelic">+0 Attack</div>
+          </div>
+          <div class="loot-card">
+            <strong>Scale Armour</strong>
+            <div id="scaleArmour">+0 Defence</div>
+          </div>
+          <div class="loot-card">
+            <strong>Heart Ember</strong>
+            <div id="heartEmber">+0 HP</div>
+          </div>
+        </div>
+
+        <div id="battleLog" class="log">点击 Start Auto Battle 开始第一层挑战。</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const state = {
+      floor: 1,
+      bestFloor: 1,
+      gold: 0,
+      auto: false,
+      loot: { atk: 0, def: 0, hp: 0 },
+      dragon: { level: 1, baseAtk: 12, baseHp: 90, baseDef: 4, hp: 90 },
+      enemy: null,
+      timer: null
+    };
+
+    const enemies = ['Tower Goblin','Stone Drake','Ash Wolf','Void Imp','Iron Knight','Night Serpent'];
+    const avatars = ['👹','🪨','🐺','😈','🛡️','🐍'];
+
+    function dragonStats() {
+      return {
+        atk: state.dragon.baseAtk + (state.dragon.level - 1) * 4 + state.loot.atk,
+        hp: state.dragon.baseHp + (state.dragon.level - 1) * 18 + state.loot.hp,
+        def: state.dragon.baseDef + (state.dragon.level - 1) * 2 + state.loot.def
+      };
+    }
+
+    function spawnEnemy() {
+      const floor = state.floor;
+      const i = (floor - 1) % enemies.length;
+      state.enemy = {
+        name: floor % 10 === 0 ? `Floor ${floor} Boss` : enemies[i],
+        avatar: floor % 10 === 0 ? '🐉' : avatars[i],
+        atk: 8 + floor * 3,
+        hp: 55 + floor * 22,
+        def: 2 + Math.floor(floor * 1.5)
+      };
+      state.enemy.currentHp = state.enemy.hp;
+      state.dragon.hp = dragonStats().hp;
+    }
+
+    function log(msg) {
+      document.getElementById('battleLog').innerHTML = msg;
+    }
+
+    function render() {
+      const d = dragonStats();
+      document.getElementById('dragonLevel').textContent = state.dragon.level;
+      document.getElementById('dragonAtk').textContent = d.atk;
+      document.getElementById('dragonHp').textContent = d.hp;
+      document.getElementById('dragonDef').textContent = d.def;
+      document.getElementById('gold').textContent = state.gold;
+      document.getElementById('bestFloor').textContent = state.bestFloor;
+      document.getElementById('floorText').textContent = `Floor ${state.floor}`;
+      document.getElementById('playerPower').textContent = `Power ${d.atk + d.def}`;
+      document.getElementById('playerHpText').textContent = `HP ${Math.max(0, state.dragon.hp)} / ${d.hp}`;
+      document.getElementById('playerHpFill').style.width = `${Math.max(0, state.dragon.hp) / d.hp * 100}%`;
+      document.getElementById('enemyName').textContent = state.enemy.name;
+      document.getElementById('enemyAvatar').textContent = state.enemy.avatar;
+      document.getElementById('enemyPower').textContent = `Power ${state.enemy.atk + state.enemy.def}`;
+      document.getElementById('enemyHpText').textContent = `HP ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
+      document.getElementById('enemyHpFill').style.width = `${Math.max(0, state.enemy.currentHp) / state.enemy.hp * 100}%`;
+      document.getElementById('clawRelic').textContent = `+${state.loot.atk} Attack`;
+      document.getElementById('scaleArmour').textContent = `+${state.loot.def} Defence`;
+      document.getElementById('heartEmber').textContent = `+${state.loot.hp} HP`;
+    }
+
+    function rewardLoot() {
+      const type = ['atk','def','hp'][Math.floor(Math.random() * 3)];
+      const gain = state.floor % 10 === 0 ? 4 : 2;
+      state.loot[type] += gain;
+      state.gold += 12 + state.floor * 4;
+      log(`Cleared floor ${state.floor}. 获得 ${12 + state.floor * 4} gold，掉落 ${type.toUpperCase()} +${gain}。`);
+    }
+
+    function battleTick() {
+      const d = dragonStats();
+      const dragonHit = Math.max(1, d.atk - state.enemy.def + Math.floor(Math.random() * 5));
+      const enemyHit = Math.max(1, state.enemy.atk - d.def + Math.floor(Math.random() * 4));
+      state.enemy.currentHp -= dragonHit;
+      if (state.enemy.currentHp <= 0) {
+        rewardLoot();
+        state.bestFloor = Math.max(state.bestFloor, state.floor);
+        state.floor += 1;
+        spawnEnemy();
+        render();
+        return;
+      }
+      state.dragon.hp -= enemyHit;
+      if (state.dragon.hp <= 0) {
+        log(`你的龙在 Floor ${state.floor} 被 ${state.enemy.name} 击退了。自动回到这一层重新挑战。`);
+        state.dragon.hp = d.hp;
+        state.enemy.currentHp = state.enemy.hp;
+      } else {
+        log(`你造成 ${dragonHit} 伤害，敌人回击 ${enemyHit}。`);
+      }
+      render();
+    }
+
+    function startAuto() {
+      if (state.timer) return;
+      state.auto = true;
+      log('开始挂机爬塔中…');
+      state.timer = setInterval(battleTick, 900);
+    }
+
+    function upgradeDragon() {
+      if (state.gold < 40) {
+        log('Gold 不够，先多打几层。');
+        return;
+      }
+      state.gold -= 40;
+      state.dragon.level += 1;
+      state.dragon.hp = dragonStats().hp;
+      log(`你的龙升到 Lv.${state.dragon.level}，基础属性提升。`);
+      render();
+    }
+
+    function autoEquip() {
+      log('当前掉落已经自动作为最好装备生效。后面完整版可以扩展成装备栏和词条。');
+      render();
+    }
+
+    function nextFloor() {
+      state.floor += 1;
+      spawnEnemy();
+      log(`直接前往 Floor ${state.floor}。`);
+      render();
+    }
+
+    document.getElementById('startBtn').addEventListener('click', startAuto);
+    document.getElementById('upgradeBtn').addEventListener('click', upgradeDragon);
+    document.getElementById('equipBtn').addEventListener('click', autoEquip);
+    document.getElementById('nextBtn').addEventListener('click', nextFloor);
+
+    spawnEnemy();
+    render();
+  </script>
+</body>
+</html>
