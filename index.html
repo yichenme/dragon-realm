@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      font-family: "Trebuchet MS", Arial, sans-serif;
+      font-family: "Times New Roman", Times, serif;
       background: radial-gradient(circle at top, #1e293b 0%, #0f172a 55%, #020617 100%);
       color: #e5e7eb;
     }
@@ -183,59 +183,59 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Dragon Realm Demo</h1>
-    <div class="subtitle">挂机 + 装备养成 + 无限爬塔 demo。你是驯龙师，开局只有一条龙，靠挂机战斗、装备掉落和属性成长不断向上爬塔。</div>
+    <h1>龙之领域</h1>
+    <div class="subtitle">挂机、装备养成、无限爬塔试玩版。你是驯龙师，开局只有一条龙，靠自动战斗、掉落成长和进化不断向上爬塔。</div>
 
     <div class="grid">
       <div class="card dragon-card">
-        <h2>你的龙 Your Dragon</h2>
+        <h2>你的龙</h2>
         <div class="dragon-avatar" id="dragonAvatar">龍</div>
-        <div id="dragonName">赤焰灵龙 Flame Spirit Dragon</div>
+        <div id="dragonName">赤焰灵龙</div>
         <div class="stat-list">
-          <div class="stat-row"><span>Level</span><strong id="dragonLevel">1</strong></div>
-          <div class="stat-row"><span>Attack</span><strong id="dragonAtk">12</strong></div>
-          <div class="stat-row"><span>HP</span><strong id="dragonHp">90</strong></div>
-          <div class="stat-row"><span>Defence</span><strong id="dragonDef">4</strong></div>
-          <div class="stat-row"><span>Gold</span><strong id="gold">0</strong></div>
-          <div class="stat-row"><span>Best Floor</span><strong id="bestFloor">1</strong></div>
-          <div class="stat-row"><span>Evolution</span><strong id="evolutionStage">幼龙 Young</strong></div>
+          <div class="stat-row"><span>等级</span><strong id="dragonLevel">1</strong></div>
+          <div class="stat-row"><span>攻击</span><strong id="dragonAtk">12</strong></div>
+          <div class="stat-row"><span>生命</span><strong id="dragonHp">90</strong></div>
+          <div class="stat-row"><span>防御</span><strong id="dragonDef">4</strong></div>
+          <div class="stat-row"><span>金币</span><strong id="gold">0</strong></div>
+          <div class="stat-row"><span>最高层</span><strong id="bestFloor">1</strong></div>
+          <div class="stat-row"><span>进化</span><strong id="evolutionStage">幼龙</strong></div>
         </div>
       </div>
 
       <div class="card battle-card">
         <div class="top-row">
           <div>
-            <h2 style="margin:0;">Tower Clash</h2>
-            <div style="color:#cbd5e1; margin-top:6px;">卡牌/头像式对撞战斗，自动攻击，装备提升属性。</div>
+            <h2 style="margin:0;">登塔战场</h2>
+            <div style="color:#cbd5e1; margin-top:6px;">头像式自动战斗，龙会持续进攻，掉落会直接转化成成长。</div>
           </div>
-          <div class="tower-badge" id="floorText">Floor 1</div>
+          <div class="tower-badge" id="floorText">第 1 层</div>
         </div>
 
         <div class="arena">
           <div class="fighter player">
             <div class="fighter-avatar">🐲</div>
-            <div id="playerName">Flame Wyrmling</div>
-            <div id="playerPower">Power 16</div>
+            <div id="playerName">赤焰灵龙</div>
+            <div id="playerPower">战力 16</div>
             <div class="hp-bar"><div id="playerHpFill" class="hp-fill"></div></div>
-            <div id="playerHpText">HP 90 / 90</div>
+            <div id="playerHpText">生命 90 / 90</div>
           </div>
           <div class="vs">VS</div>
           <div class="fighter enemy">
             <div class="fighter-avatar" id="enemyAvatar">👹</div>
             <div id="enemyName">Tower Goblin</div>
-            <div id="enemyPower">Power 12</div>
+            <div id="enemyPower">战力 12</div>
             <div class="hp-bar"><div id="enemyHpFill" class="hp-fill"></div></div>
-            <div id="enemyHpText">HP 70 / 70</div>
+            <div id="enemyHpText">生命 70 / 70</div>
           </div>
         </div>
 
         <div class="controls">
-          <button id="startBtn">开始挂机 Start Auto Battle</button>
-          <button id="upgradeBtn" class="secondary">消耗 40 Gold 升级龙</button>
-          <button id="equipBtn" class="secondary">吸收掉落 Absorb Loot</button>
-          <button id="evolveBtn" class="secondary">进化龙 Evolve Dragon</button>
-          <button id="skillBtn" class="secondary">释放技能 Cast Skill</button>
-          <button id="nextBtn" class="secondary">下一层 Next Floor</button>
+          <button id="startBtn">开始挂机</button>
+          <button id="upgradeBtn" class="secondary">消耗 40 金币升级</button>
+          <button id="equipBtn" class="secondary">吸收掉落</button>
+          <button id="evolveBtn" class="secondary">龙族进化</button>
+          <button id="skillBtn" class="secondary">释放技能</button>
+          <button id="nextBtn" class="secondary">前往下一层</button>
         </div>
 
         <div class="loot-grid">
@@ -254,12 +254,12 @@
         </div>
 
         <div class="skill-grid">
-          <div class="loot-card"><strong>Skill 1</strong><div id="skill1">龙息 Breath Burst, unlocked</div></div>
-          <div class="loot-card"><strong>Skill 2</strong><div id="skill2">苍雷护体 Thunder Guard, unlock at Lv.5</div></div>
-          <div class="loot-card"><strong>Skill 3</strong><div id="skill3">天火坠 Skyfire Fall, unlock at Lv.10</div></div>
+          <div class="loot-card"><strong>技能一</strong><div id="skill1">龙息，已解锁</div></div>
+          <div class="loot-card"><strong>技能二</strong><div id="skill2">苍雷护体，5 级解锁</div></div>
+          <div class="loot-card"><strong>技能三</strong><div id="skill3">天火坠，10 级解锁</div></div>
         </div>
 
-        <div id="battleLog" class="log">点击 Start Auto Battle 开始第一层挑战。</div>
+        <div id="battleLog" class="log">点击“开始挂机”开始第一层挑战。</div>
       </div>
     </div>
   </div>
@@ -276,8 +276,8 @@
       timer: null
     };
 
-    const enemies = ['Tower Goblin','Stone Drake','Ash Wolf','Void Imp','Iron Knight','Night Serpent'];
-    const avatars = ['👹','🪨','🐺','😈','🛡️','🐍'];
+    const enemies = ['塔中妖兵','岩甲地龙','灰烬妖狼','幽影鬼卒','铁甲守将','夜蛇妖'];
+    const avatars = ['妖','岩','狼','鬼','将','蛇'];
 
     function dragonStats() {
       const evoAtk = state.dragon.evolution * 8;
@@ -294,7 +294,7 @@
       const floor = state.floor;
       const i = (floor - 1) % enemies.length;
       state.enemy = {
-        name: floor % 10 === 0 ? `Floor ${floor} Boss` : enemies[i],
+        name: floor % 10 === 0 ? `第 ${floor} 层首领` : enemies[i],
         avatar: floor % 10 === 0 ? '🐉' : avatars[i],
         atk: 8 + floor * 3,
         hp: 55 + floor * 22,
@@ -316,17 +316,17 @@
       document.getElementById('dragonDef').textContent = d.def;
       document.getElementById('gold').textContent = state.gold;
       document.getElementById('bestFloor').textContent = state.bestFloor;
-      const evolutionNames = ['幼龙 Young','灵龙 Spirit','真龙 True Dragon','天龙 Celestial'];
+      const evolutionNames = ['幼龙','灵龙 Spirit','真龙 True Dragon','天龙 Celestial'];
       document.getElementById('evolutionStage').textContent = evolutionNames[state.dragon.evolution] || '神龙 Divine';
       document.getElementById('dragonAvatar').textContent = ['龍','蛟','麟','龍王'][state.dragon.evolution] || '龍';
-      document.getElementById('floorText').textContent = `Floor ${state.floor}`;
-      document.getElementById('playerPower').textContent = `Power ${d.atk + d.def}`;
-      document.getElementById('playerHpText').textContent = `HP ${Math.max(0, state.dragon.hp)} / ${d.hp}`;
+      document.getElementById('floorText').textContent = `第 ${state.floor} 层`;
+      document.getElementById('playerPower').textContent = `战力 ${d.atk + d.def}`;
+      document.getElementById('playerHpText').textContent = `生命 ${Math.max(0, state.dragon.hp)} / ${d.hp}`;
       document.getElementById('playerHpFill').style.width = `${Math.max(0, state.dragon.hp) / d.hp * 100}%`;
       document.getElementById('enemyName').textContent = state.enemy.name;
       document.getElementById('enemyAvatar').textContent = state.enemy.avatar;
-      document.getElementById('enemyPower').textContent = `Power ${state.enemy.atk + state.enemy.def}`;
-      document.getElementById('enemyHpText').textContent = `HP ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
+      document.getElementById('enemyPower').textContent = `战力 ${state.enemy.atk + state.enemy.def}`;
+      document.getElementById('enemyHpText').textContent = `生命 ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
       document.getElementById('enemyHpFill').style.width = `${Math.max(0, state.enemy.currentHp) / state.enemy.hp * 100}%`;
       document.getElementById('clawRelic').textContent = `+${state.loot.atk} Attack`;
       document.getElementById('scaleArmour').textContent = `+${state.loot.def} Defence`;
@@ -339,7 +339,7 @@
       state.loot[type] += gain;
       state.gold += 12 + state.floor * 4;
       if (state.floor % 3 === 0) state.dragon.level += 1;
-      log(`Cleared floor ${state.floor}. 获得 ${12 + state.floor * 4} gold，掉落 ${type.toUpperCase()} +${gain}，龙的经验上升。`);
+      log(`你通过了第 ${state.floor} 层，获得 ${12 + state.floor * 4} 金币，并吸收了 ${type.toUpperCase()} +${gain} 的成长。`);
     }
 
     function battleTick() {
@@ -375,13 +375,13 @@
 
     function upgradeDragon() {
       if (state.gold < 40) {
-        log('Gold 不够，先多打几层。');
+        log('金币不够，先多打几层。');
         return;
       }
       state.gold -= 40;
       state.dragon.level += 1;
       state.dragon.hp = dragonStats().hp;
-      log(`你的龙升到 Lv.${state.dragon.level}，基础属性提升。`);
+      log(`你的龙升到 ${state.dragon.level} 级，基础属性提升。`);
       render();
     }
 
@@ -393,7 +393,7 @@
     function evolveDragon() {
       const needLevel = (state.dragon.evolution + 1) * 5;
       if (state.dragon.level < needLevel) {
-        log(`需要达到 Lv.${needLevel} 才能进化。`);
+        log(`需要达到 ${needLevel} 级才能进化。`);
         return;
       }
       if (state.dragon.evolution >= 3) {
@@ -410,13 +410,13 @@
       if (!state.enemy) return;
       const d = dragonStats();
       let damage = d.atk * 1.5;
-      let name = '龙息 Breath Burst';
+      let name = '龙息';
       if (state.dragon.level >= 10) {
         damage = d.atk * 2.6;
-        name = '天火坠 Skyfire Fall';
+        name = '天火坠';
       } else if (state.dragon.level >= 5) {
         damage = d.atk * 2.0;
-        name = '苍雷护体 Thunder Guard';
+        name = '苍雷护体';
       }
       state.enemy.currentHp -= Math.floor(damage);
       if (state.enemy.currentHp <= 0) {
