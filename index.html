@@ -3,56 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dragon Realm Demo</title>
+  <title>龙之领域</title>
   <style>
     body {
       margin: 0;
       font-family: "Times New Roman", Times, serif;
-      background: radial-gradient(circle at top, #1e293b 0%, #0f172a 55%, #020617 100%);
-      color: #e5e7eb;
+      background: radial-gradient(circle at top, #1a2238 0%, #0f172a 52%, #050814 100%);
+      color: #ece7dd;
     }
     .wrap {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 28px 18px 60px;
     }
     h1 {
       margin-bottom: 8px;
-      font-size: 42px;
-      color: #f8fafc;
+      font-size: 44px;
+      color: #f8f3ea;
+      letter-spacing: 1px;
     }
     .subtitle {
-      color: #cbd5e1;
+      color: #d7d0c4;
       margin-bottom: 22px;
-      line-height: 1.7;
+      line-height: 1.8;
+      max-width: 900px;
     }
     .grid {
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 340px 1fr;
       gap: 18px;
     }
     .card {
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: linear-gradient(180deg, rgba(18, 25, 44, 0.92), rgba(10, 15, 29, 0.92));
+      border: 1px solid rgba(201, 169, 97, 0.24);
       border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.28);
-      backdrop-filter: blur(6px);
+      padding: 20px;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, .34);
     }
     .dragon-card {
       text-align: center;
     }
-    .dragon-avatar {
-      width: 180px;
-      height: 180px;
-      margin: 8px auto 14px;
+    .dragon-portrait,
+    .enemy-portrait {
+      width: 190px;
+      height: 190px;
+      margin: 10px auto 16px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(214, 169, 86, 0.35);
+      background: radial-gradient(circle at 30% 22%, rgba(250, 204, 21, 0.22), transparent 34%), linear-gradient(180deg, #3a1e12 0%, #22142c 48%, #0f172a 100%);
+      box-shadow: inset 0 0 30px rgba(255, 214, 102, 0.09), 0 0 28px rgba(249, 115, 22, 0.16);
+    }
+    .dragon-portrait::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 22px 72px 20px 72px;
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.95), rgba(180, 83, 9, 0.95));
+      clip-path: polygon(12% 70%, 18% 48%, 30% 34%, 38% 24%, 52% 18%, 68% 20%, 82% 30%, 88% 44%, 84% 60%, 72% 72%, 58% 80%, 44% 82%, 30% 78%);
+      filter: drop-shadow(0 8px 8px rgba(0,0,0,.22));
+    }
+    .dragon-portrait::after {
+      content: "";
+      position: absolute;
+      width: 116px;
+      height: 116px;
+      right: 18px;
+      top: 16px;
+      border-radius: 58% 42% 62% 38%;
+      background: linear-gradient(135deg, rgba(255, 239, 174, 0.96), rgba(245, 158, 11, 0.94));
+      clip-path: polygon(16% 56%, 28% 34%, 48% 18%, 66% 18%, 82% 28%, 90% 44%, 82% 62%, 64% 74%, 42% 78%, 22% 72%);
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.22);
+    }
+    .portrait-mark {
+      position: absolute;
+      left: 16px;
+      bottom: 12px;
+      font-size: 30px;
+      font-weight: 700;
+      color: rgba(255, 248, 220, 0.84);
+      text-shadow: 0 3px 10px rgba(0,0,0,.44);
+      letter-spacing: 3px;
+    }
+    .portrait-submark {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      font-size: 16px;
+      color: rgba(255, 241, 212, 0.82);
+    }
+    .enemy-portrait {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 12px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 35% 28%, rgba(129, 140, 248, 0.22), transparent 34%), linear-gradient(180deg, #1f2b52 0%, #1d1830 56%, #0f172a 100%);
+      box-shadow: inset 0 0 26px rgba(165, 180, 252, 0.11), 0 0 24px rgba(99, 102, 241, 0.14);
+    }
+    .enemy-portrait::before {
+      content: "";
+      position: absolute;
+      inset: 20px 18px 22px;
+      border-radius: 52% 48% 58% 42%;
+      background: linear-gradient(145deg, rgba(129, 140, 248, 0.95), rgba(67, 56, 202, 0.95));
+      clip-path: polygon(12% 74%, 16% 44%, 32% 24%, 48% 16%, 68% 18%, 84% 30%, 90% 48%, 82% 68%, 60% 82%, 34% 84%);
+    }
+    .enemy-portrait::after {
+      content: "";
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      right: 28px;
+      top: 26px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #fef3c7 0%, #f59e0b 24%, #b45309 54%, #1e1b4b 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 88px;
-      box-shadow: 0 0 30px rgba(249,115,22,.35);
+      background: rgba(255,255,255,0.78);
+      box-shadow: -30px 14px 0 rgba(255,255,255,0.28);
     }
     .stat-list {
       display: grid;
@@ -65,10 +131,10 @@
       gap: 12px;
       padding: 10px 12px;
       border-radius: 12px;
-      background: rgba(30, 41, 59, 0.7);
+      background: rgba(33, 43, 70, 0.62);
     }
     .battle-card {
-      min-height: 620px;
+      min-height: 680px;
     }
     .top-row {
       display: grid;
@@ -81,12 +147,13 @@
       padding: 10px 14px;
       border-radius: 999px;
       background: rgba(249,115,22,.14);
-      color: #fdba74;
+      color: #fdc278;
       font-weight: 700;
+      border: 1px solid rgba(249,115,22,.24);
     }
     .arena {
       display: grid;
-      grid-template-columns: 1fr 80px 1fr;
+      grid-template-columns: 1fr 90px 1fr;
       gap: 12px;
       align-items: center;
       margin: 24px 0;
@@ -94,23 +161,9 @@
     .fighter {
       padding: 18px;
       border-radius: 18px;
-      background: rgba(30, 41, 59, 0.78);
-      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(26, 35, 58, 0.8);
+      border: 1px solid rgba(201, 169, 97, 0.16);
       text-align: center;
-    }
-    .fighter-avatar {
-      width: 110px;
-      height: 110px;
-      border-radius: 20px;
-      margin: 0 auto 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 54px;
-      background: linear-gradient(135deg, rgba(251,191,36,.18), rgba(249,115,22,.32));
-    }
-    .enemy .fighter-avatar {
-      background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(168,85,247,.32));
     }
     .vs {
       text-align: center;
@@ -148,16 +201,12 @@
       color: white;
       font-weight: 700;
       cursor: pointer;
+      font-family: "Times New Roman", Times, serif;
     }
     button.secondary {
       background: linear-gradient(135deg, #334155, #1e293b);
     }
-    .loot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
+    .loot-grid,
     .skill-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -177,19 +226,27 @@
       background: rgba(2, 6, 23, 0.55);
       min-height: 120px;
       line-height: 1.7;
-      color: #cbd5e1;
+      color: #d6d1c8;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .arena { grid-template-columns: 1fr; }
+      .vs { padding: 8px 0; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>龙之领域</h1>
-    <div class="subtitle">挂机、装备养成、无限爬塔试玩版。你是驯龙师，开局只有一条龙，靠自动战斗、掉落成长和进化不断向上爬塔。</div>
+    <div class="subtitle">挂机、装备养成、无限爬塔试玩版。你是驯龙师，开局只有一条赤焰灵龙，靠自动战斗、掉落成长、等级提升与龙族进化不断登上更高塔层。</div>
 
     <div class="grid">
       <div class="card dragon-card">
         <h2>你的龙</h2>
-        <div class="dragon-avatar" id="dragonAvatar">龍</div>
+        <div class="dragon-portrait" id="dragonAvatar">
+          <div class="portrait-submark">东方灵脉</div>
+          <div class="portrait-mark" id="dragonPortraitText">赤焰</div>
+        </div>
         <div id="dragonName">赤焰灵龙</div>
         <div class="stat-list">
           <div class="stat-row"><span>等级</span><strong id="dragonLevel">1</strong></div>
@@ -206,23 +263,28 @@
         <div class="top-row">
           <div>
             <h2 style="margin:0;">登塔战场</h2>
-            <div style="color:#cbd5e1; margin-top:6px;">头像式自动战斗，龙会持续进攻，掉落会直接转化成成长。</div>
+            <div style="color:#cbd5e1; margin-top:6px;">头像式自动战斗，龙会持续进攻，掉落会直接转化成成长。每十层出现一名首领守塔者。</div>
           </div>
           <div class="tower-badge" id="floorText">第 1 层</div>
         </div>
 
         <div class="arena">
           <div class="fighter player">
-            <div class="fighter-avatar">🐲</div>
+            <div class="dragon-portrait" style="width:130px;height:130px;margin:0 auto 12px;">
+              <div class="portrait-submark" style="font-size:12px;top:10px;right:12px;">灵龙</div>
+              <div class="portrait-mark" style="font-size:24px;left:14px;bottom:10px;">赤焰</div>
+            </div>
             <div id="playerName">赤焰灵龙</div>
             <div id="playerPower">战力 16</div>
             <div class="hp-bar"><div id="playerHpFill" class="hp-fill"></div></div>
             <div id="playerHpText">生命 90 / 90</div>
           </div>
-          <div class="vs">VS</div>
+          <div class="vs">对 决</div>
           <div class="fighter enemy">
-            <div class="fighter-avatar" id="enemyAvatar">👹</div>
-            <div id="enemyName">Tower Goblin</div>
+            <div class="enemy-portrait" id="enemyAvatar">
+              <div class="portrait-mark" id="enemyPortraitText" style="font-size:22px;left:14px;bottom:10px;">妖兵</div>
+            </div>
+            <div id="enemyName">塔中妖兵</div>
             <div id="enemyPower">战力 12</div>
             <div class="hp-bar"><div id="enemyHpFill" class="hp-fill"></div></div>
             <div id="enemyHpText">生命 70 / 70</div>
@@ -240,16 +302,16 @@
 
         <div class="loot-grid">
           <div class="loot-card">
-            <strong>Dragon Pearl 龙珠</strong>
-            <div id="clawRelic">+0 Attack</div>
+            <strong>龙珠</strong>
+            <div id="clawRelic">攻击 +0</div>
           </div>
           <div class="loot-card">
-            <strong>Scale Guard 龙鳞护甲</strong>
-            <div id="scaleArmour">+0 Defence</div>
+            <strong>龙鳞护甲</strong>
+            <div id="scaleArmour">防御 +0</div>
           </div>
           <div class="loot-card">
-            <strong>Spirit Core 灵核</strong>
-            <div id="heartEmber">+0 HP</div>
+            <strong>灵核</strong>
+            <div id="heartEmber">生命 +0</div>
           </div>
         </div>
 
@@ -269,15 +331,15 @@
       floor: 1,
       bestFloor: 1,
       gold: 0,
-      auto: false,
       loot: { atk: 0, def: 0, hp: 0 },
       dragon: { level: 1, baseAtk: 12, baseHp: 90, baseDef: 4, hp: 90, evolution: 0 },
       enemy: null,
       timer: null
     };
 
-    const enemies = ['塔中妖兵','岩甲地龙','灰烬妖狼','幽影鬼卒','铁甲守将','夜蛇妖'];
-    const avatars = ['妖','岩','狼','鬼','将','蛇'];
+    const enemies = ['塔中妖兵', '岩甲地龙', '灰烬妖狼', '幽影鬼卒', '铁甲守将', '夜蛇妖'];
+    const enemyMarks = ['妖兵', '地龙', '妖狼', '鬼卒', '守将', '夜蛇'];
+    const growthNames = { atk: '攻击', def: '防御', hp: '生命' };
 
     function dragonStats() {
       const evoAtk = state.dragon.evolution * 8;
@@ -295,7 +357,7 @@
       const i = (floor - 1) % enemies.length;
       state.enemy = {
         name: floor % 10 === 0 ? `第 ${floor} 层首领` : enemies[i],
-        avatar: floor % 10 === 0 ? '🐉' : avatars[i],
+        mark: floor % 10 === 0 ? '首领' : enemyMarks[i],
         atk: 8 + floor * 3,
         hp: 55 + floor * 22,
         def: 2 + Math.floor(floor * 1.5)
@@ -310,36 +372,38 @@
 
     function render() {
       const d = dragonStats();
+      const evolutionNames = ['幼龙', '灵龙', '真龙', '天龙'];
+      const portraitMarks = ['赤焰', '灵脉', '真炎', '天极'];
+
       document.getElementById('dragonLevel').textContent = state.dragon.level;
       document.getElementById('dragonAtk').textContent = d.atk;
       document.getElementById('dragonHp').textContent = d.hp;
       document.getElementById('dragonDef').textContent = d.def;
       document.getElementById('gold').textContent = state.gold;
       document.getElementById('bestFloor').textContent = state.bestFloor;
-      const evolutionNames = ['幼龙','灵龙 Spirit','真龙 True Dragon','天龙 Celestial'];
-      document.getElementById('evolutionStage').textContent = evolutionNames[state.dragon.evolution] || '神龙 Divine';
-      document.getElementById('dragonAvatar').textContent = ['龍','蛟','麟','龍王'][state.dragon.evolution] || '龍';
+      document.getElementById('evolutionStage').textContent = evolutionNames[state.dragon.evolution] || '神龙';
+      document.getElementById('dragonPortraitText').textContent = portraitMarks[state.dragon.evolution] || '神炎';
       document.getElementById('floorText').textContent = `第 ${state.floor} 层`;
       document.getElementById('playerPower').textContent = `战力 ${d.atk + d.def}`;
       document.getElementById('playerHpText').textContent = `生命 ${Math.max(0, state.dragon.hp)} / ${d.hp}`;
       document.getElementById('playerHpFill').style.width = `${Math.max(0, state.dragon.hp) / d.hp * 100}%`;
       document.getElementById('enemyName').textContent = state.enemy.name;
-      document.getElementById('enemyAvatar').textContent = state.enemy.avatar;
+      document.getElementById('enemyPortraitText').textContent = state.enemy.mark;
       document.getElementById('enemyPower').textContent = `战力 ${state.enemy.atk + state.enemy.def}`;
       document.getElementById('enemyHpText').textContent = `生命 ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
       document.getElementById('enemyHpFill').style.width = `${Math.max(0, state.enemy.currentHp) / state.enemy.hp * 100}%`;
-      document.getElementById('clawRelic').textContent = `+${state.loot.atk} Attack`;
-      document.getElementById('scaleArmour').textContent = `+${state.loot.def} Defence`;
-      document.getElementById('heartEmber').textContent = `+${state.loot.hp} HP`;
+      document.getElementById('clawRelic').textContent = `攻击 +${state.loot.atk}`;
+      document.getElementById('scaleArmour').textContent = `防御 +${state.loot.def}`;
+      document.getElementById('heartEmber').textContent = `生命 +${state.loot.hp}`;
     }
 
     function rewardLoot() {
-      const type = ['atk','def','hp'][Math.floor(Math.random() * 3)];
+      const type = ['atk', 'def', 'hp'][Math.floor(Math.random() * 3)];
       const gain = state.floor % 10 === 0 ? 4 : 2;
       state.loot[type] += gain;
       state.gold += 12 + state.floor * 4;
       if (state.floor % 3 === 0) state.dragon.level += 1;
-      log(`你通过了第 ${state.floor} 层，获得 ${12 + state.floor * 4} 金币，并吸收了 ${type.toUpperCase()} +${gain} 的成长。`);
+      log(`你通过了第 ${state.floor} 层，获得 ${12 + state.floor * 4} 金币，并吸收了 ${growthNames[type]} +${gain} 的成长。`);
     }
 
     function battleTick() {
@@ -357,19 +421,18 @@
       }
       state.dragon.hp -= enemyHit;
       if (state.dragon.hp <= 0) {
-        log(`你的龙在 Floor ${state.floor} 被 ${state.enemy.name} 击退了。自动回到这一层重新挑战。`);
+        log(`你的龙在第 ${state.floor} 层被 ${state.enemy.name} 击退，正在原层重整气息。`);
         state.dragon.hp = d.hp;
         state.enemy.currentHp = state.enemy.hp;
       } else {
-        log(`你造成 ${dragonHit} 伤害，敌人回击 ${enemyHit}。`);
+        log(`你造成 ${dragonHit} 点伤害，敌人回击 ${enemyHit} 点伤害。`);
       }
       render();
     }
 
     function startAuto() {
       if (state.timer) return;
-      state.auto = true;
-      log('开始挂机爬塔中…');
+      log('开始挂机爬塔中……');
       state.timer = setInterval(battleTick, 900);
     }
 
@@ -397,12 +460,12 @@
         return;
       }
       if (state.dragon.evolution >= 3) {
-        log('当前 demo 已达到最高进化阶段。');
+        log('当前试玩版已达到最高进化阶段。');
         return;
       }
       state.dragon.evolution += 1;
       state.dragon.hp = dragonStats().hp;
-      log('你的东方龙完成了一次进化，气息更强了。');
+      log('你的东方龙完成了一次进化，龙威更盛。');
       render();
     }
 
@@ -425,14 +488,14 @@
         state.floor += 1;
         spawnEnemy();
       }
-      log(`你释放了 ${name}，造成 ${Math.floor(damage)} 伤害。`);
+      log(`你释放了 ${name}，造成 ${Math.floor(damage)} 点伤害。`);
       render();
     }
 
     function nextFloor() {
       state.floor += 1;
       spawnEnemy();
-      log(`直接前往 Floor ${state.floor}。`);
+      log(`你直接前往第 ${state.floor} 层。`);
       render();
     }
 
