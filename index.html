@@ -41,6 +41,15 @@
       border-radius: 20px;
       padding: 22px;
       box-shadow: 0 14px 30px rgba(98, 69, 39, 0.16);
+      position: relative;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 2px solid rgba(156, 112, 70, 0.14);
+      pointer-events: none;
+      image-rendering: pixelated;
     }
     .dragon-card {
       text-align: center;
@@ -166,6 +175,21 @@
         0 48px 0 #7c3aed, 12px 48px 0 #7c3aed, 24px 48px 0 #a78bfa, 36px 48px 0 #7c3aed, 48px 48px 0 #5b21b6, 60px 48px 0 #7c3aed,
         12px 60px 0 #7c3aed, 24px 60px 0 #5b21b6, 36px 60px 0 #5b21b6, 48px 60px 0 #7c3aed;
     }
+    .pixel-boss {
+      position: absolute;
+      left: 18px;
+      top: 12px;
+      width: 14px;
+      height: 14px;
+      background: #7f1d1d;
+      box-shadow:
+        14px 0 0 #7f1d1d, 28px 0 0 #991b1b, 42px 0 0 #991b1b, 56px 0 0 #7f1d1d,
+        0 14px 0 #7f1d1d, 14px 14px 0 #dc2626, 28px 14px 0 #ef4444, 42px 14px 0 #ef4444, 56px 14px 0 #dc2626, 70px 14px 0 #7f1d1d,
+        -14px 28px 0 #fecaca, 0 28px 0 #dc2626, 14px 28px 0 #ef4444, 28px 28px 0 #1f2937, 42px 28px 0 #ef4444, 56px 28px 0 #dc2626, 70px 28px 0 #7f1d1d, 84px 28px 0 #7f1d1d,
+        -14px 42px 0 #fecaca, 0 42px 0 #dc2626, 14px 42px 0 #ef4444, 28px 42px 0 #ef4444, 42px 42px 0 #dc2626, 56px 42px 0 #7f1d1d, 70px 42px 0 #7f1d1d, 84px 42px 0 #7f1d1d,
+        0 56px 0 #dc2626, 14px 56px 0 #ef4444, 28px 56px 0 #b91c1c, 42px 56px 0 #b91c1c, 56px 56px 0 #dc2626, 70px 56px 0 #7f1d1d, 84px 56px 0 #7f1d1d,
+        14px 70px 0 #b91c1c, 28px 70px 0 #991b1b, 42px 70px 0 #991b1b, 56px 70px 0 #b91c1c, 70px 70px 0 #7f1d1d;
+    }
     .enemy-name-mark {
       position: absolute;
       left: 14px;
@@ -274,16 +298,19 @@
     }
     button {
       padding: 12px 16px;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #9a6b3f, #7c542e);
-      color: white;
+      border: 2px solid #714a28;
+      border-radius: 0;
+      background: linear-gradient(180deg, #a97a48, #8b6137);
+      color: #fff9ef;
       font-weight: 700;
       cursor: pointer;
       font-family: "Times New Roman", Times, serif;
+      box-shadow: inset 0 0 0 2px rgba(241, 220, 187, 0.16), 4px 4px 0 rgba(99, 69, 39, 0.18);
+      image-rendering: pixelated;
     }
     button.secondary {
-      background: linear-gradient(135deg, #b79566, #93704a);
+      background: linear-gradient(180deg, #c3a171, #a58055);
+      color: #4f371f;
     }
     .loot-grid,
     .skill-grid {
@@ -294,9 +321,10 @@
     }
     .loot-card {
       padding: 14px;
-      border-radius: 14px;
+      border-radius: 0;
       background: rgba(255, 248, 235, 0.72);
-      border: 1px solid rgba(144, 98, 54, 0.12);
+      border: 2px solid rgba(144, 98, 54, 0.16);
+      box-shadow: inset 0 0 0 2px rgba(241, 220, 187, 0.12);
     }
     .log {
       margin-top: 18px;
@@ -322,6 +350,15 @@
       background: linear-gradient(90deg, rgba(168, 122, 67, 0.18), rgba(214, 186, 135, 0.16));
       border-color: rgba(168, 122, 67, 0.22);
       color: #7a5633;
+    }
+    .pixel-skill {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 8px;
+      vertical-align: middle;
+      background: #d97706;
+      box-shadow: 10px 0 0 #f59e0b, 20px 0 0 #fcd34d, 10px -10px 0 #fcd34d, 10px 10px 0 #b45309;
     }
     .battle-banner.boss {
       background: linear-gradient(90deg, rgba(132, 69, 45, 0.22), rgba(181, 125, 91, 0.16));
@@ -388,9 +425,9 @@
           </div>
           <div class="vs">对 决</div>
           <div class="fighter enemy" id="enemyCard">
-            <div class="enemy-scene">
+            <div class="enemy-scene" id="enemyScene">
               <div class="pixel-cloud" style="transform:scale(.45);transform-origin:top left;left:10px;top:12px;opacity:.1;"></div>
-              <div class="pixel-enemy"></div>
+              <div class="pixel-enemy" id="enemySprite"></div>
               <div class="enemy-name-mark" id="enemyPortraitText">妖兵</div>
             </div>
             <div id="enemyName">塔中妖兵</div>
@@ -484,7 +521,8 @@
 
     function setBanner(text, mode = 'normal') {
       const banner = document.getElementById('battleBanner');
-      banner.textContent = text;
+      const prefix = mode === 'skill' ? '<span class="pixel-skill"></span>' : '';
+      banner.innerHTML = `${prefix}${text}`;
       banner.className = `battle-banner${mode === 'normal' ? '' : ' ' + mode}`;
       state.lastBannerMode = mode;
     }
@@ -521,6 +559,8 @@
       document.getElementById('playerHpFill').style.width = `${Math.max(0, state.dragon.hp) / d.hp * 100}%`;
       document.getElementById('enemyName').textContent = state.enemy.name;
       document.getElementById('enemyPortraitText').textContent = state.enemy.mark;
+      const enemySprite = document.getElementById('enemySprite');
+      enemySprite.className = state.floor % 10 === 0 ? 'pixel-boss' : 'pixel-enemy';
       document.getElementById('enemyPower').textContent = `战力 ${state.enemy.atk + state.enemy.def}`;
       document.getElementById('enemyHpText').textContent = `生命 ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
       document.getElementById('enemyHpFill').style.width = `${Math.max(0, state.enemy.currentHp) / state.enemy.hp * 100}%`;
