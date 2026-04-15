@@ -131,6 +131,9 @@
       box-shadow: 14px 14px 0 #f8d27b, 28px 28px 0 #f8d27b, 42px 42px 0 #f8d27b;
       opacity: 0.95;
     }
+    .pixel-dragon.spirit { filter: hue-rotate(20deg) saturate(1.1); }
+    .pixel-dragon.true { filter: hue-rotate(-18deg) saturate(1.2) brightness(1.02); }
+    .pixel-dragon.celestial { filter: hue-rotate(42deg) saturate(1.3) brightness(1.08); }
     .dragon-title {
       position: absolute;
       left: 18px;
@@ -210,6 +213,9 @@
     .skill-overlay.active .pixel-thunder {
       animation: pixelBurst .55s steps(3) forwards;
     }
+    .enemy-scene.boss-enter {
+      animation: bossEnter .7s steps(4) forwards;
+    }
     .pixel-flame {
       left: 58%;
       top: 34%;
@@ -226,6 +232,12 @@
       0% { opacity: 0; transform: translate(0, 0) scale(1); }
       25% { opacity: 1; }
       100% { opacity: 0; transform: translate(44px, -16px) scale(1.3); }
+    }
+    @keyframes bossEnter {
+      0% { transform: scale(.72); opacity: .2; }
+      40% { transform: scale(1.12); opacity: 1; }
+      70% { transform: scale(.96); }
+      100% { transform: scale(1); opacity: 1; }
     }
     .enemy-name-mark {
       position: absolute;
@@ -532,6 +544,7 @@
     const enemyMarks = ['妖兵', '地龙', '妖狼', '鬼卒', '守将', '夜蛇'];
     const growthNames = { atk: '攻击', def: '防御', hp: '生命' };
     const enemySpriteClasses = ['pixel-enemy', 'pixel-enemy beast', 'pixel-enemy wolf', 'pixel-enemy', 'pixel-enemy guard', 'pixel-enemy beast'];
+    const dragonSpriteClasses = ['pixel-dragon', 'pixel-dragon spirit', 'pixel-dragon true', 'pixel-dragon celestial'];
 
     function dragonStats() {
       const evoAtk = state.dragon.evolution * 8;
@@ -595,6 +608,9 @@
       document.getElementById('bestFloor').textContent = state.bestFloor;
       document.getElementById('evolutionStage').textContent = evolutionNames[state.dragon.evolution] || '神龙';
       document.getElementById('dragonPortraitText').textContent = portraitMarks[state.dragon.evolution] || '神炎';
+      document.querySelectorAll('.pixel-dragon').forEach(el => {
+        el.className = dragonSpriteClasses[state.dragon.evolution] || 'pixel-dragon celestial';
+      });
       document.getElementById('floorText').textContent = `第 ${state.floor} 层`;
       document.getElementById('floorText').classList.toggle('boss-floor', state.floor % 10 === 0);
       document.getElementById('playerPower').textContent = `战力 ${d.atk + d.def}`;
@@ -638,6 +654,12 @@
         if (state.floor % 10 === 0) {
           setBanner(`第 ${state.floor} 层首领降临，塔内威压陡增。`, 'boss');
           pulseFloorBadge('boss-floor');
+          const scene = document.getElementById('enemyScene');
+          scene.classList.remove('boss-enter');
+          void scene.offsetWidth;
+          scene.classList.add('boss-enter');
+          setTimeout(() => scene.classList.remove('boss-enter'), 800);
+          playTone(180, 0.18, 'sawtooth', 0.05);
         }
         render();
         return;
@@ -652,6 +674,7 @@
       } else {
         setBanner(`你造成 ${dragonHit} 点伤害，敌人反击 ${enemyHit} 点伤害。`);
         log(`你造成 ${dragonHit} 点伤害，敌人回击 ${enemyHit} 点伤害。`);
+        playTone(260, 0.04, 'square', 0.02);
       }
       render();
     }
@@ -660,6 +683,7 @@
       if (state.timer) return;
       setBanner('灵龙已出战，开始自动登塔。');
       log('开始挂机爬塔中……');
+      playTone(320, 0.08, 'square', 0.03);
       state.timer = setInterval(battleTick, 900);
     }
 
@@ -727,8 +751,29 @@
       }
       setBanner(`你释放了 ${name}，爆发 ${Math.floor(damage)} 点伤害。`, 'skill');
       log(`你释放了 ${name}，造成 ${Math.floor(damage)} 点伤害。`);
+      playTone(name === '天火坠' ? 520 : 380, 0.12, name === '苍雷护体' ? 'square' : 'triangle', 0.04);
       setTimeout(() => document.getElementById('skillOverlay').classList.remove('active'), 600);
       render();
+    }
+
+
+    function playTone(freq = 440, duration = 0.08, type = 'square', volume = 0.03) {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        if (!window.__dragonAudioCtx) window.__dragonAudioCtx = new AudioCtx();
+        const ctx = window.__dragonAudioCtx;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.value = freq;
+        gain.gain.value = volume;
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {}
     }
 
     function nextFloor() {
@@ -737,6 +782,14 @@
       pulseFloorBadge();
       setBanner(`你已踏入第 ${state.floor} 层。`, state.floor % 10 === 0 ? 'boss' : 'normal');
       log(`你直接前往第 ${state.floor} 层。`);
+      if (state.floor % 10 === 0) {
+        const scene = document.getElementById('enemyScene');
+        scene.classList.remove('boss-enter');
+        void scene.offsetWidth;
+        scene.classList.add('boss-enter');
+        setTimeout(() => scene.classList.remove('boss-enter'), 800);
+        playTone(180, 0.18, 'sawtooth', 0.05);
+      }
       render();
     }
 
