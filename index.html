@@ -8,540 +8,224 @@
     body {
       margin: 0;
       font-family: "Times New Roman", Times, serif;
-      background:
-        linear-gradient(180deg, rgba(120, 87, 52, 0.08), rgba(120, 87, 52, 0.08)),
-        linear-gradient(180deg, #eadfcb 0%, #dcc9a6 52%, #c9b188 100%);
-      color: #4a3722;
+      background: linear-gradient(180deg, #efe3ca 0%, #dcc29a 50%, #c8aa7c 100%);
+      color: #4c3520;
     }
     .wrap {
-      max-width: 1220px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 28px 18px 60px;
     }
     h1 {
-      margin-bottom: 8px;
-      font-size: 46px;
-      color: #5b3f26;
+      margin: 0 0 8px;
+      font-size: 44px;
+      color: #59381d;
       letter-spacing: 2px;
     }
     .subtitle {
-      color: #6f5539;
       margin-bottom: 22px;
       line-height: 1.8;
-      max-width: 920px;
+      color: #6b5032;
+      max-width: 820px;
     }
     .grid {
       display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 20px;
+      grid-template-columns: 320px 1fr;
+      gap: 18px;
     }
     .card {
-      background: linear-gradient(180deg, rgba(250, 243, 227, 0.95), rgba(236, 223, 193, 0.96));
-      border: 1px solid rgba(144, 98, 54, 0.24);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: 0 14px 30px rgba(98, 69, 39, 0.16);
-      position: relative;
+      background: rgba(252, 246, 233, 0.92);
+      border: 2px solid rgba(124, 84, 46, 0.22);
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(99, 69, 39, 0.12);
     }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border: 2px solid rgba(156, 112, 70, 0.14);
-      pointer-events: none;
-      image-rendering: pixelated;
-    }
-    .dragon-card {
-      text-align: center;
-    }
-    .dragon-scene {
-      width: 240px;
-      height: 240px;
-      margin: 12px auto 18px;
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #b98d56 0%, #9f7645 52%, #7f5a34 100%);
-      border: 2px solid rgba(108, 71, 38, 0.42);
-      box-shadow: inset 0 0 0 2px rgba(250, 240, 212, 0.18);
-      image-rendering: pixelated;
-    }
-    .pixel-cloud,
-    .pixel-cloud.two,
-    .pixel-cloud.three {
-      position: absolute;
-      background: #f6ead0;
-      width: 52px;
-      height: 14px;
-      left: 18px;
-      top: 24px;
-      box-shadow: 14px 0 0 #f6ead0, 28px 0 0 #f6ead0, 10px -10px 0 #f6ead0, 24px -10px 0 #f6ead0, 38px -10px 0 #f6ead0;
-      opacity: 0.14;
-    }
-    .pixel-cloud.two {
-      top: 176px;
-      left: 146px;
-      width: 34px;
-      box-shadow: 14px 0 0 #f6ead0, 28px 0 0 #f6ead0, 10px -10px 0 #f6ead0, 24px -10px 0 #f6ead0;
-    }
-    .pixel-cloud.three {
-      top: 54px;
-      left: 154px;
-      width: 22px;
-      box-shadow: 14px 0 0 #f6ead0, 8px -10px 0 #f6ead0;
-    }
-    .pixel-dragon {
-      position: absolute;
-      left: 42px;
-      top: 56px;
-      width: 14px;
-      height: 14px;
-      background: #f2a531;
-      box-shadow:
-        14px 0 0 #f2a531, 28px 0 0 #f2a531, 42px 0 0 #f2a531, 56px 0 0 #f2a531,
-        0 14px 0 #f2a531, 14px 14px 0 #f2a531, 28px 14px 0 #ffd27a, 42px 14px 0 #ffd27a, 56px 14px 0 #f2a531, 70px 14px 0 #cf6b1f,
-        -14px 28px 0 #ffe6a8, 0 28px 0 #f2a531, 14px 28px 0 #ffd27a, 28px 28px 0 #ffd27a, 42px 28px 0 #f2a531, 56px 28px 0 #f2a531, 70px 28px 0 #cf6b1f, 84px 28px 0 #a94b18,
-        -14px 42px 0 #ffe6a8, 0 42px 0 #f2a531, 14px 42px 0 #ffd27a, 28px 42px 0 #1b120f, 42px 42px 0 #ffd27a, 56px 42px 0 #f2a531, 70px 42px 0 #cf6b1f, 84px 42px 0 #a94b18, 98px 42px 0 #f2a531,
-        0 56px 0 #f2a531, 14px 56px 0 #f2a531, 28px 56px 0 #ffd27a, 42px 56px 0 #ffd27a, 56px 56px 0 #f2a531, 70px 56px 0 #cf6b1f, 84px 56px 0 #a94b18, 98px 56px 0 #f2a531, 112px 56px 0 #f2a531,
-        14px 70px 0 #f2a531, 28px 70px 0 #f2a531, 42px 70px 0 #f2a531, 56px 70px 0 #cf6b1f, 70px 70px 0 #a94b18, 84px 70px 0 #f2a531, 98px 70px 0 #f2a531, 112px 70px 0 #ffd27a, 126px 70px 0 #f2a531,
-        28px 84px 0 #f2a531, 42px 84px 0 #f2a531, 56px 84px 0 #cf6b1f, 70px 84px 0 #a94b18, 84px 84px 0 #f2a531, 98px 84px 0 #ffd27a, 112px 84px 0 #f2a531, 126px 84px 0 #f2a531, 140px 84px 0 #cf6b1f,
-        42px 98px 0 #f2a531, 56px 98px 0 #cf6b1f, 70px 98px 0 #a94b18, 84px 98px 0 #f2a531, 98px 98px 0 #ffd27a, 112px 98px 0 #f2a531, 126px 98px 0 #cf6b1f,
-        56px 112px 0 #cf6b1f, 70px 112px 0 #a94b18, 84px 112px 0 #f2a531, 98px 112px 0 #ffd27a, 112px 112px 0 #f2a531,
-        70px 126px 0 #a94b18, 84px 126px 0 #f2a531, 98px 126px 0 #f2a531,
-        84px 140px 0 #f2a531;
-    }
-    .pixel-dragon::before {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      left: 14px;
-      top: -14px;
-      background: #fff3cf;
-      box-shadow: 70px 0 0 #fff3cf, 14px -14px 0 #fff3cf, 56px -14px 0 #fff3cf;
-    }
-    .pixel-dragon::after {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      left: 126px;
-      top: 56px;
-      background: #f8d27b;
-      box-shadow: 14px 14px 0 #f8d27b, 28px 28px 0 #f8d27b, 42px 42px 0 #f8d27b;
-      opacity: 0.95;
-    }
-    .pixel-dragon.young { transform: scale(.92); transform-origin: top left; }
-    .pixel-dragon.spirit { filter: hue-rotate(20deg) saturate(1.1); transform: scale(1); transform-origin: top left; }
-    .pixel-dragon.true { filter: hue-rotate(-18deg) saturate(1.2) brightness(1.02); transform: scale(1.05) translate(-4px, -6px); transform-origin: top left; }
-    .pixel-dragon.true::after { box-shadow: 14px 14px 0 #f8d27b, 28px 28px 0 #f8d27b, 42px 42px 0 #f8d27b, 56px 56px 0 #f8d27b; }
-    .pixel-dragon.celestial { filter: hue-rotate(42deg) saturate(1.3) brightness(1.08); transform: scale(1.12) translate(-6px, -12px); transform-origin: top left; }
-    .pixel-dragon.celestial::before { box-shadow: 70px 0 0 #fff3cf, 14px -14px 0 #fff3cf, 56px -14px 0 #fff3cf, 84px 14px 0 #fff3cf; }
-    .pixel-dragon.celestial::after { box-shadow: 14px 14px 0 #f8d27b, 28px 28px 0 #f8d27b, 42px 42px 0 #f8d27b, 56px 56px 0 #fff0b8, 70px 70px 0 #fff0b8; }
-    .dragon-title {
-      position: absolute;
-      left: 18px;
-      bottom: 14px;
-      font-size: 28px;
-      font-weight: 700;
-      color: rgba(255, 246, 226, 0.9);
-      letter-spacing: 3px;
-      text-shadow: 0 3px 10px rgba(0,0,0,.4);
-    }
-    .dragon-aura {
-      position: absolute;
-      right: 18px;
-      top: 14px;
-      font-size: 15px;
-      color: rgba(255, 241, 212, 0.86);
-    }
-    .enemy-scene {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 12px;
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #b08a5d 0%, #926b42 52%, #6f4f31 100%);
-      border: 2px solid rgba(108, 71, 38, 0.38);
-      box-shadow: inset 0 0 0 2px rgba(250, 240, 212, 0.14);
-      image-rendering: pixelated;
-    }
-    .pixel-enemy {
-      position: absolute;
-      left: 30px;
-      top: 28px;
-      width: 12px;
-      height: 12px;
-      background: #7c3aed;
-      box-shadow:
-        12px 0 0 #7c3aed, 24px 0 0 #7c3aed, 36px 0 0 #7c3aed,
-        0 12px 0 #7c3aed, 12px 12px 0 #a78bfa, 24px 12px 0 #a78bfa, 36px 12px 0 #7c3aed, 48px 12px 0 #5b21b6,
-        -12px 24px 0 #c4b5fd, 0 24px 0 #7c3aed, 12px 24px 0 #a78bfa, 24px 24px 0 #1f2937, 36px 24px 0 #a78bfa, 48px 24px 0 #5b21b6, 60px 24px 0 #5b21b6,
-        -12px 36px 0 #c4b5fd, 0 36px 0 #7c3aed, 12px 36px 0 #a78bfa, 24px 36px 0 #a78bfa, 36px 36px 0 #7c3aed, 48px 36px 0 #5b21b6, 60px 36px 0 #5b21b6,
-        0 48px 0 #7c3aed, 12px 48px 0 #7c3aed, 24px 48px 0 #a78bfa, 36px 48px 0 #7c3aed, 48px 48px 0 #5b21b6, 60px 48px 0 #7c3aed,
-        12px 60px 0 #7c3aed, 24px 60px 0 #5b21b6, 36px 60px 0 #5b21b6, 48px 60px 0 #7c3aed;
-    }
-    .pixel-boss {
-      position: absolute;
-      left: 18px;
-      top: 12px;
-      width: 14px;
-      height: 14px;
-      background: #7f1d1d;
-      box-shadow:
-        14px 0 0 #7f1d1d, 28px 0 0 #991b1b, 42px 0 0 #991b1b, 56px 0 0 #7f1d1d,
-        0 14px 0 #7f1d1d, 14px 14px 0 #dc2626, 28px 14px 0 #ef4444, 42px 14px 0 #ef4444, 56px 14px 0 #dc2626, 70px 14px 0 #7f1d1d,
-        -14px 28px 0 #fecaca, 0 28px 0 #dc2626, 14px 28px 0 #ef4444, 28px 28px 0 #1f2937, 42px 28px 0 #ef4444, 56px 28px 0 #dc2626, 70px 28px 0 #7f1d1d, 84px 28px 0 #7f1d1d,
-        -14px 42px 0 #fecaca, 0 42px 0 #dc2626, 14px 42px 0 #ef4444, 28px 42px 0 #ef4444, 42px 42px 0 #dc2626, 56px 42px 0 #7f1d1d, 70px 42px 0 #7f1d1d, 84px 42px 0 #7f1d1d,
-        0 56px 0 #dc2626, 14px 56px 0 #ef4444, 28px 56px 0 #b91c1c, 42px 56px 0 #b91c1c, 56px 56px 0 #dc2626, 70px 56px 0 #7f1d1d, 84px 56px 0 #7f1d1d,
-        14px 70px 0 #b91c1c, 28px 70px 0 #991b1b, 42px 70px 0 #991b1b, 56px 70px 0 #b91c1c, 70px 70px 0 #7f1d1d;
-    }
-    .pixel-enemy.beast { background: #2f855a; box-shadow: 12px 0 0 #2f855a, 24px 0 0 #38a169, 36px 0 0 #2f855a, 0 12px 0 #2f855a, 12px 12px 0 #68d391, 24px 12px 0 #68d391, 36px 12px 0 #2f855a, 48px 12px 0 #276749, -12px 24px 0 #9ae6b4, 0 24px 0 #2f855a, 12px 24px 0 #68d391, 24px 24px 0 #1f2937, 36px 24px 0 #68d391, 48px 24px 0 #276749, 60px 24px 0 #276749, -12px 36px 0 #9ae6b4, 0 36px 0 #2f855a, 12px 36px 0 #68d391, 24px 36px 0 #68d391, 36px 36px 0 #2f855a, 48px 36px 0 #276749, 60px 36px 0 #276749, 0 48px 0 #2f855a, 12px 48px 0 #2f855a, 24px 48px 0 #68d391, 36px 48px 0 #2f855a, 48px 48px 0 #276749, 60px 48px 0 #2f855a, 12px 60px 0 #2f855a, 24px 60px 0 #276749, 36px 60px 0 #276749, 48px 60px 0 #2f855a; }
-    .pixel-enemy.wolf { background: #4a5568; box-shadow: 12px 0 0 #4a5568, 24px 0 0 #718096, 36px 0 0 #4a5568, 0 12px 0 #4a5568, 12px 12px 0 #a0aec0, 24px 12px 0 #a0aec0, 36px 12px 0 #4a5568, 48px 12px 0 #2d3748, -12px 24px 0 #e2e8f0, 0 24px 0 #4a5568, 12px 24px 0 #a0aec0, 24px 24px 0 #111827, 36px 24px 0 #a0aec0, 48px 24px 0 #2d3748, 60px 24px 0 #2d3748, -12px 36px 0 #e2e8f0, 0 36px 0 #4a5568, 12px 36px 0 #a0aec0, 24px 36px 0 #a0aec0, 36px 36px 0 #4a5568, 48px 36px 0 #2d3748, 60px 36px 0 #2d3748, 0 48px 0 #4a5568, 12px 48px 0 #4a5568, 24px 48px 0 #a0aec0, 36px 48px 0 #4a5568, 48px 48px 0 #2d3748, 60px 48px 0 #4a5568, 12px 60px 0 #4a5568, 24px 60px 0 #2d3748, 36px 60px 0 #2d3748, 48px 60px 0 #4a5568; }
-    .pixel-enemy.guard { background: #8b5e34; box-shadow: 12px 0 0 #8b5e34, 24px 0 0 #b08968, 36px 0 0 #8b5e34, 0 12px 0 #8b5e34, 12px 12px 0 #ddb892, 24px 12px 0 #ddb892, 36px 12px 0 #8b5e34, 48px 12px 0 #6f4518, -12px 24px 0 #ffe8cc, 0 24px 0 #8b5e34, 12px 24px 0 #ddb892, 24px 24px 0 #1f2937, 36px 24px 0 #ddb892, 48px 24px 0 #6f4518, 60px 24px 0 #6f4518, -12px 36px 0 #ffe8cc, 0 36px 0 #8b5e34, 12px 36px 0 #ddb892, 24px 36px 0 #ddb892, 36px 36px 0 #8b5e34, 48px 36px 0 #6f4518, 60px 36px 0 #6f4518, 0 48px 0 #8b5e34, 12px 48px 0 #8b5e34, 24px 48px 0 #ddb892, 36px 48px 0 #8b5e34, 48px 48px 0 #6f4518, 60px 48px 0 #8b5e34, 12px 60px 0 #8b5e34, 24px 60px 0 #6f4518, 36px 60px 0 #6f4518, 48px 60px 0 #8b5e34; }
-    .skill-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .pixel-flame, .pixel-thunder, .pixel-skyfire {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      opacity: 0;
-      image-rendering: pixelated;
-    }
-    .skill-overlay.active .pixel-flame,
-    .skill-overlay.active .pixel-thunder,
-    .skill-overlay.active .pixel-skyfire {
-      animation: pixelBurst .55s steps(3) forwards;
-    }
-    .enemy-scene.boss-enter {
-      animation: bossEnter .7s steps(4) forwards;
-    }
-    .pixel-flame {
-      left: 58%;
-      top: 34%;
-      background: #d97706;
-      box-shadow: 12px 0 0 #f59e0b, 24px 0 0 #fcd34d, 12px -12px 0 #fcd34d, 12px 12px 0 #b45309;
-    }
-    .pixel-thunder {
-      left: 62%;
-      top: 28%;
-      background: #60a5fa;
-      box-shadow: 12px 0 0 #93c5fd, 0 12px 0 #2563eb, 12px 12px 0 #bfdbfe, 24px 12px 0 #2563eb;
-    }
-    .pixel-skyfire {
-      left: 56%;
-      top: 22%;
-      background: #b91c1c;
-      box-shadow: 12px 0 0 #dc2626, 24px 0 0 #f97316, 12px 12px 0 #fb923c, 24px 12px 0 #fbbf24, 12px 24px 0 #f59e0b;
-    }
-    @keyframes pixelBurst {
-      0% { opacity: 0; transform: translate(0, 0) scale(1); }
-      25% { opacity: 1; }
-      100% { opacity: 0; transform: translate(44px, -16px) scale(1.3); }
-    }
-    @keyframes bossEnter {
-      0% { transform: scale(.72); opacity: .2; }
-      40% { transform: scale(1.12); opacity: 1; }
-      70% { transform: scale(.96); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .enemy-name-mark {
-      position: absolute;
-      left: 14px;
-      bottom: 12px;
-      font-size: 20px;
-      color: rgba(245, 248, 255, 0.88);
-      letter-spacing: 2px;
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 24px;
     }
     .stat-list {
       display: grid;
       gap: 10px;
-      margin-top: 16px;
     }
     .stat-row {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(133, 97, 58, 0.10);
+      background: rgba(133, 97, 58, 0.08);
       border: 1px solid rgba(133, 97, 58, 0.12);
-    }
-    .battle-card {
-      min-height: 720px;
     }
     .top-row {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 16px;
+      gap: 14px;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
-    .tower-badge {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(133, 97, 58, 0.12);
-      color: #7a5531;
-      font-weight: 700;
+    .badge {
+      padding: 8px 12px;
       border: 1px solid rgba(133, 97, 58, 0.18);
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      background: rgba(133, 97, 58, 0.10);
+      font-weight: 700;
     }
-    .tower-badge.floor-up {
-      transform: scale(1.08);
-      box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.24), 0 10px 24px rgba(249, 115, 22, 0.18);
-      background: rgba(249,115,22,.24);
+    .badge.boss {
+      background: rgba(153, 27, 27, 0.10);
+      border-color: rgba(153, 27, 27, 0.22);
+      color: #7f1d1d;
     }
-    .tower-badge.boss-floor {
-      background: rgba(127, 29, 29, 0.28);
-      color: #fecaca;
-      border-color: rgba(248, 113, 113, 0.36);
-      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.14);
-    }
-    .arena {
-      display: grid;
-      grid-template-columns: 1fr 90px 1fr;
-      gap: 12px;
-      align-items: center;
-      margin: 24px 0;
-    }
-    .fighter {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255, 249, 239, 0.66);
-      border: 1px solid rgba(144, 98, 54, 0.14);
-      text-align: center;
-      position: relative;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .fighter.hit {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 0 0 2px rgba(165, 102, 66, 0.16), 0 12px 20px rgba(128, 88, 54, 0.10);
-      border-color: rgba(248, 113, 113, 0.42);
-    }
-    .fighter.skill-burst {
-      transform: scale(1.04);
-      box-shadow: 0 0 0 2px rgba(166, 125, 73, 0.18), 0 14px 22px rgba(166, 125, 73, 0.12);
-      border-color: rgba(166, 125, 73, 0.24);
-    }
-    .vs {
-      text-align: center;
-      font-size: 28px;
-      color: #8a6139;
-      font-weight: 800;
-    }
-    .hp-bar {
-      height: 16px;
-      overflow: hidden;
-      background: repeating-linear-gradient(90deg, #c7b18a 0 10px, #b79f77 10px 20px);
-      margin-top: 10px;
-      border: 2px solid rgba(120, 87, 52, 0.26);
-      box-shadow: inset 0 0 0 2px rgba(250, 240, 212, 0.12);
-    }
-    .hp-fill {
-      height: 100%;
-      width: 100%;
-      background: repeating-linear-gradient(90deg, #7a9b53 0 10px, #9fbc68 10px 20px);
-      transition: width .25s ease;
-    }
-    .enemy .hp-fill {
-      background: repeating-linear-gradient(90deg, #b85c38 0 10px, #d8844d 10px 20px);
+    .enemy-box, .skills-box, .loot-box, .banner, .log {
+      padding: 14px;
+      border: 1px solid rgba(133, 97, 58, 0.14);
+      background: rgba(255, 249, 239, 0.72);
+      margin-top: 14px;
     }
     .controls {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin: 18px 0;
+      gap: 12px;
+      margin-top: 14px;
     }
     button {
       padding: 12px 16px;
       border: 2px solid #714a28;
-      border-radius: 0;
       background: linear-gradient(180deg, #a97a48, #8b6137);
       color: #fff9ef;
+      font-family: "Times New Roman", Times, serif;
       font-weight: 700;
       cursor: pointer;
-      font-family: "Times New Roman", Times, serif;
-      box-shadow: inset 0 0 0 2px rgba(241, 220, 187, 0.16), 4px 4px 0 rgba(99, 69, 39, 0.18);
-      image-rendering: pixelated;
     }
     button.secondary {
       background: linear-gradient(180deg, #c3a171, #a58055);
       color: #4f371f;
     }
-    .loot-grid,
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
+    .hp-wrap {
+      margin-top: 8px;
     }
-    .loot-card {
-      padding: 14px;
-      border-radius: 0;
-      background: rgba(255, 248, 235, 0.72);
-      border: 2px solid rgba(144, 98, 54, 0.16);
-      box-shadow: inset 0 0 0 2px rgba(241, 220, 187, 0.12);
+    .hp-label {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .hp-bar {
+      height: 16px;
+      border: 2px solid rgba(120, 87, 52, 0.24);
+      background: repeating-linear-gradient(90deg, #cfbb97 0 12px, #c0a985 12px 24px);
+      overflow: hidden;
+    }
+    .hp-fill {
+      height: 100%;
+      width: 100%;
+      background: repeating-linear-gradient(90deg, #7c9a56 0 12px, #97b86b 12px 24px);
+      transition: width .25s ease;
+    }
+    .enemy-fill {
+      background: repeating-linear-gradient(90deg, #b75f3f 0 12px, #d4875f 12px 24px);
+    }
+    .skill-row, .loot-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(133, 97, 58, 0.14);
+    }
+    .skill-row:last-child, .loot-row:last-child {
+      border-bottom: none;
+    }
+    .banner {
+      font-weight: 700;
+      color: #6a4d31;
+    }
+    .banner.skill {
+      color: #8a5a1f;
+    }
+    .banner.boss {
+      color: #8b1e1e;
+      background: rgba(153, 27, 27, 0.08);
     }
     .log {
-      margin-top: 18px;
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(120, 87, 52, 0.10);
-      border: 1px solid rgba(120, 87, 52, 0.10);
-      min-height: 120px;
-      line-height: 1.7;
-      color: #5f452a;
+      min-height: 140px;
+      line-height: 1.75;
+      white-space: pre-line;
     }
-    .battle-banner {
-      margin: 8px 0 14px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      background: rgba(120, 87, 52, 0.10);
-      border: 1px solid rgba(120, 87, 52, 0.12);
-      color: #6a4d31;
-      font-weight: 700;
-      min-height: 24px;
-    }
-    .battle-banner.skill {
-      background: linear-gradient(90deg, rgba(168, 122, 67, 0.18), rgba(214, 186, 135, 0.16));
-      border-color: rgba(168, 122, 67, 0.22);
-      color: #7a5633;
-    }
-    .pixel-skill {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin-right: 8px;
-      vertical-align: middle;
-      background: #d97706;
-      box-shadow: 10px 0 0 #f59e0b, 20px 0 0 #fcd34d, 10px -10px 0 #fcd34d, 10px 10px 0 #b45309;
-    }
-    .battle-banner.boss {
-      background: linear-gradient(90deg, rgba(132, 69, 45, 0.22), rgba(181, 125, 91, 0.16));
-      border-color: rgba(132, 69, 45, 0.24);
-      color: #7b4a2a;
-    }
-    @media (max-width: 920px) {
+    @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
-      .arena { grid-template-columns: 1fr; }
-      .vs { padding: 8px 0; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>龙之领域</h1>
-    <div class="subtitle">挂机、装备养成、无限爬塔试玩版。你是驯龙师，开局只有一条赤焰灵龙，靠自动战斗、掉落成长、等级提升与龙族进化不断登上更高塔层。</div>
+    <div class="subtitle">文字挂机爬塔版。你是驯龙师，培养一条龙不断突破更高塔层。这个版本不再强调图像，而是专注玩法、数值成长、技能循环、Boss 压力和离线收益。</div>
 
     <div class="grid">
-      <div class="card dragon-card">
-        <h2>你的龙</h2>
-        <div class="dragon-scene">
-          <div class="pixel-cloud"></div>
-          <div class="pixel-cloud two"></div>
-          <div class="pixel-cloud three"></div>
-          <div class="pixel-dragon"></div>
-          <div class="dragon-aura">像素灵脉</div>
-          <div class="dragon-title" id="dragonPortraitText">赤焰</div>
-        </div>
-        <div id="dragonName">赤焰灵龙</div>
+      <div class="card">
+        <h2>灵龙面板</h2>
         <div class="stat-list">
+          <div class="stat-row"><span>名称</span><strong id="dragonName">赤焰灵龙</strong></div>
           <div class="stat-row"><span>等级</span><strong id="dragonLevel">1</strong></div>
+          <div class="stat-row"><span>进化阶段</span><strong id="dragonEvolution">幼龙</strong></div>
           <div class="stat-row"><span>攻击</span><strong id="dragonAtk">12</strong></div>
           <div class="stat-row"><span>生命</span><strong id="dragonHp">90</strong></div>
           <div class="stat-row"><span>防御</span><strong id="dragonDef">4</strong></div>
           <div class="stat-row"><span>金币</span><strong id="gold">0</strong></div>
           <div class="stat-row"><span>最高层</span><strong id="bestFloor">1</strong></div>
-          <div class="stat-row"><span>进化</span><strong id="evolutionStage">幼龙</strong></div>
+        </div>
+
+        <div class="skills-box">
+          <strong>技能</strong>
+          <div class="skill-row"><span>龙息</span><span id="skill1">已解锁</span></div>
+          <div class="skill-row"><span>苍雷护体</span><span id="skill2">5 级解锁</span></div>
+          <div class="skill-row"><span>天火坠</span><span id="skill3">10 级解锁</span></div>
+        </div>
+
+        <div class="loot-box">
+          <strong>成长掉落</strong>
+          <div class="loot-row"><span>龙珠</span><span id="lootAtk">攻击 +0</span></div>
+          <div class="loot-row"><span>龙鳞护甲</span><span id="lootDef">防御 +0</span></div>
+          <div class="loot-row"><span>灵核</span><span id="lootHp">生命 +0</span></div>
         </div>
       </div>
 
-      <div class="card battle-card">
+      <div class="card">
         <div class="top-row">
           <div>
-            <h2 style="margin:0;">登塔战场</h2>
-            <div style="color:#cbd5e1; margin-top:6px;">头像式自动战斗，龙会持续进攻，掉落会直接转化成成长。每十层出现一名首领守塔者。</div>
+            <h2 style="margin:0;">登塔战况</h2>
+            <div style="margin-top:6px;color:#6b5032;">自动战斗、技能爆发、Boss 层警告与离线收益都会集中显示在这里。</div>
           </div>
-          <div class="tower-badge" id="floorText">第 1 层</div>
+          <div class="badge" id="floorBadge">第 1 层</div>
         </div>
 
-        <div class="arena">
-          <div class="skill-overlay" id="skillOverlay">
-            <div class="pixel-flame"></div>
-            <div class="pixel-thunder"></div>
-            <div class="pixel-skyfire"></div>
-          </div>
-          <div class="fighter player" id="playerCard">
-            <div class="dragon-scene" style="width:160px;height:160px;margin:0 auto 12px;">
-              <div class="pixel-cloud" style="transform:scale(.58);transform-origin:top left;left:8px;top:16px;"></div>
-              <div class="pixel-cloud two" style="transform:scale(.58);transform-origin:top left;left:94px;top:112px;"></div>
-              <div class="pixel-dragon" style="transform:scale(.6);transform-origin:top left;left:20px;top:34px;"></div>
-              <div class="dragon-aura" style="font-size:12px;right:10px;top:8px;">灵龙</div>
-              <div class="dragon-title" style="font-size:22px;left:12px;bottom:8px;">赤焰</div>
-            </div>
-            <div id="playerName">赤焰灵龙</div>
-            <div id="playerPower">战力 16</div>
+        <div class="banner" id="battleBanner">战斗尚未开始。</div>
+
+        <div class="enemy-box">
+          <div class="stat-row"><span>当前敌人</span><strong id="enemyName">塔中妖兵</strong></div>
+          <div class="stat-row"><span>敌人类型</span><strong id="enemyType">普通怪</strong></div>
+          <div class="stat-row"><span>敌方战力</span><strong id="enemyPower">12</strong></div>
+          <div class="hp-wrap">
+            <div class="hp-label" id="playerHpText">我方生命 90 / 90</div>
             <div class="hp-bar"><div id="playerHpFill" class="hp-fill"></div></div>
-            <div id="playerHpText">生命 90 / 90</div>
           </div>
-          <div class="vs">对 决</div>
-          <div class="fighter enemy" id="enemyCard">
-            <div class="enemy-scene" id="enemyScene">
-              <div class="pixel-cloud" style="transform:scale(.45);transform-origin:top left;left:10px;top:12px;opacity:.1;"></div>
-              <div class="pixel-enemy" id="enemySprite"></div>
-              <div class="enemy-name-mark" id="enemyPortraitText">妖兵</div>
-            </div>
-            <div id="enemyName">塔中妖兵</div>
-            <div id="enemyPower">战力 12</div>
-            <div class="hp-bar"><div id="enemyHpFill" class="hp-fill"></div></div>
-            <div id="enemyHpText">生命 70 / 70</div>
+          <div class="hp-wrap">
+            <div class="hp-label" id="enemyHpText">敌方生命 70 / 70</div>
+            <div class="hp-bar"><div id="enemyHpFill" class="hp-fill enemy-fill"></div></div>
           </div>
         </div>
-
-        <div id="battleBanner" class="battle-banner">战斗尚未开始。</div>
 
         <div class="controls">
           <button id="startBtn">开始挂机</button>
-          <button id="upgradeBtn" class="secondary">消耗 40 金币升级</button>
-          <button id="equipBtn" class="secondary">吸收掉落</button>
+          <button id="upgradeBtn" class="secondary">升级灵龙</button>
           <button id="evolveBtn" class="secondary">龙族进化</button>
           <button id="skillBtn" class="secondary">释放技能</button>
           <button id="nextBtn" class="secondary">前往下一层</button>
         </div>
 
-        <div class="loot-grid">
-          <div class="loot-card">
-            <strong>龙珠</strong>
-            <div id="clawRelic">攻击 +0</div>
-          </div>
-          <div class="loot-card">
-            <strong>龙鳞护甲</strong>
-            <div id="scaleArmour">防御 +0</div>
-          </div>
-          <div class="loot-card">
-            <strong>灵核</strong>
-            <div id="heartEmber">生命 +0</div>
-          </div>
-        </div>
-
-        <div class="skill-grid">
-          <div class="loot-card"><strong>技能一</strong><div id="skill1">龙息，已解锁</div></div>
-          <div class="loot-card"><strong>技能二</strong><div id="skill2">苍雷护体，5 级解锁</div></div>
-          <div class="loot-card"><strong>技能三</strong><div id="skill3">天火坠，10 级解锁</div></div>
-        </div>
-
-        <div id="battleLog" class="log">点击“开始挂机”开始第一层挑战。</div>
+        <div class="log" id="battleLog">点击“开始挂机”开始第一层挑战。</div>
       </div>
     </div>
   </div>
 
   <script>
-    const SAVE_KEY = 'dragon-realm-save';
+    const SAVE_KEY = 'dragon-realm-text-save';
 
     const state = {
       floor: 1,
@@ -551,15 +235,13 @@
       dragon: { level: 1, baseAtk: 12, baseHp: 90, baseDef: 4, hp: 90, evolution: 0 },
       enemy: null,
       timer: null,
-      lastBannerMode: 'normal',
       lastSavedAt: Date.now()
     };
 
     const enemies = ['塔中妖兵', '岩甲地龙', '灰烬妖狼', '幽影鬼卒', '铁甲守将', '夜蛇妖'];
-    const enemyMarks = ['妖兵', '地龙', '妖狼', '鬼卒', '守将', '夜蛇'];
+    const enemyTypes = ['普通怪', '地龙', '妖狼', '鬼卒', '守将', '蛇妖'];
+    const evolutionNames = ['幼龙', '灵龙', '真龙', '天龙'];
     const growthNames = { atk: '攻击', def: '防御', hp: '生命' };
-    const enemySpriteClasses = ['pixel-enemy', 'pixel-enemy beast', 'pixel-enemy wolf', 'pixel-enemy', 'pixel-enemy guard', 'pixel-enemy beast'];
-    const dragonSpriteClasses = ['pixel-dragon young', 'pixel-dragon spirit', 'pixel-dragon true', 'pixel-dragon celestial'];
 
     function dragonStats() {
       const evoAtk = state.dragon.evolution * 8;
@@ -572,31 +254,13 @@
       };
     }
 
-    function spawnEnemy() {
-      const floor = state.floor;
-      const i = (floor - 1) % enemies.length;
-      state.enemy = {
-        name: floor % 10 === 0 ? `第 ${floor} 层首领` : enemies[i],
-        mark: floor % 10 === 0 ? '首领' : enemyMarks[i],
-        atk: 8 + floor * 3,
-        hp: 55 + floor * 22,
-        def: 2 + Math.floor(floor * 1.5)
-      };
-      state.enemy.currentHp = state.enemy.hp;
-      state.dragon.hp = dragonStats().hp;
-    }
-
-    function log(msg) {
-      document.getElementById('battleLog').innerHTML = msg;
-    }
-
     function saveState() {
       const payload = {
         floor: state.floor,
         bestFloor: state.bestFloor,
         gold: state.gold,
         loot: state.loot,
-        dragon: { ...state.dragon },
+        dragon: state.dragon,
         lastSavedAt: Date.now()
       };
       localStorage.setItem(SAVE_KEY, JSON.stringify(payload));
@@ -625,202 +289,32 @@
       const goldGain = idleMinutes * Math.max(4, Math.floor(state.bestFloor / 2) + 4);
       state.gold += goldGain;
       if (idleMinutes >= 3) state.dragon.level += Math.floor(idleMinutes / 3);
-      setBanner(`离线期间积累了 ${goldGain} 金币。`, 'skill');
-      log(`你离线了约 ${idleMinutes} 分钟，灵龙自动修行，带回 ${goldGain} 金币。`);
+      setBanner(`离线期间积累了 ${goldGain} 金币，灵龙自动修行后更强了。`, 'skill');
+      log(`你离线了约 ${idleMinutes} 分钟，带回 ${goldGain} 金币。`);
+    }
+
+    function spawnEnemy() {
+      const i = (state.floor - 1) % enemies.length;
+      state.enemy = {
+        name: state.floor % 10 === 0 ? `第 ${state.floor} 层首领` : enemies[i],
+        type: state.floor % 10 === 0 ? 'Boss' : enemyTypes[i],
+        atk: 8 + state.floor * 3,
+        hp: 55 + state.floor * 22,
+        def: 2 + Math.floor(state.floor * 1.5)
+      };
+      state.enemy.currentHp = state.enemy.hp;
+      state.dragon.hp = dragonStats().hp;
+    }
+
+    function log(msg) {
+      document.getElementById('battleLog').textContent = msg;
     }
 
     function setBanner(text, mode = 'normal') {
-      const banner = document.getElementById('battleBanner');
-      const prefix = mode === 'skill' ? '<span class="pixel-skill"></span>' : '';
-      banner.innerHTML = `${prefix}${text}`;
-      banner.className = `battle-banner${mode === 'normal' ? '' : ' ' + mode}`;
-      state.lastBannerMode = mode;
+      const el = document.getElementById('battleBanner');
+      el.textContent = text;
+      el.className = mode === 'normal' ? 'banner' : `banner ${mode}`;
     }
-
-    function flashCard(id, className = 'hit') {
-      const el = document.getElementById(id);
-      el.classList.add(className);
-      setTimeout(() => el.classList.remove(className), 180);
-    }
-
-    function pulseFloorBadge(extraClass = 'floor-up') {
-      const badge = document.getElementById('floorText');
-      badge.classList.add(extraClass);
-      setTimeout(() => badge.classList.remove(extraClass), 400);
-    }
-
-    function render() {
-      const d = dragonStats();
-      const evolutionNames = ['幼龙', '灵龙', '真龙', '天龙'];
-      const portraitMarks = ['赤焰', '灵脉', '真炎', '天极'];
-
-      document.getElementById('dragonLevel').textContent = state.dragon.level;
-      document.getElementById('dragonAtk').textContent = d.atk;
-      document.getElementById('dragonHp').textContent = d.hp;
-      document.getElementById('dragonDef').textContent = d.def;
-      document.getElementById('gold').textContent = state.gold;
-      document.getElementById('bestFloor').textContent = state.bestFloor;
-      document.getElementById('evolutionStage').textContent = evolutionNames[state.dragon.evolution] || '神龙';
-      document.getElementById('dragonPortraitText').textContent = portraitMarks[state.dragon.evolution] || '神炎';
-      document.querySelectorAll('.pixel-dragon').forEach(el => {
-        el.className = dragonSpriteClasses[state.dragon.evolution] || 'pixel-dragon celestial';
-      });
-      document.getElementById('floorText').textContent = `第 ${state.floor} 层`;
-      document.getElementById('floorText').classList.toggle('boss-floor', state.floor % 10 === 0);
-      document.getElementById('playerPower').textContent = `战力 ${d.atk + d.def}`;
-      document.getElementById('playerHpText').textContent = `生命 ${Math.max(0, state.dragon.hp)} / ${d.hp}`;
-      document.getElementById('playerHpFill').style.width = `${Math.max(0, state.dragon.hp) / d.hp * 100}%`;
-      document.getElementById('enemyName').textContent = state.enemy.name;
-      document.getElementById('enemyPortraitText').textContent = state.enemy.mark;
-      const enemySprite = document.getElementById('enemySprite');
-      const enemyIndex = (state.floor - 1) % enemySpriteClasses.length;
-      enemySprite.className = state.floor % 10 === 0 ? 'pixel-boss' : enemySpriteClasses[enemyIndex];
-      document.getElementById('enemyPower').textContent = `战力 ${state.enemy.atk + state.enemy.def}`;
-      document.getElementById('enemyHpText').textContent = `生命 ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
-      document.getElementById('enemyHpFill').style.width = `${Math.max(0, state.enemy.currentHp) / state.enemy.hp * 100}%`;
-      document.getElementById('clawRelic').textContent = `攻击 +${state.loot.atk}`;
-      document.getElementById('scaleArmour').textContent = `防御 +${state.loot.def}`;
-      document.getElementById('heartEmber').textContent = `生命 +${state.loot.hp}`;
-    }
-
-    function rewardLoot() {
-      const type = ['atk', 'def', 'hp'][Math.floor(Math.random() * 3)];
-      const gain = state.floor % 10 === 0 ? 4 : 2;
-      state.loot[type] += gain;
-      state.gold += 12 + state.floor * 4;
-      if (state.floor % 3 === 0) state.dragon.level += 1;
-      setBanner(`突破第 ${state.floor} 层，获得 ${12 + state.floor * 4} 金币，${growthNames[type]}提升 ${gain} 点。`, state.floor % 10 === 0 ? 'boss' : 'normal');
-      log(`你通过了第 ${state.floor} 层，获得 ${12 + state.floor * 4} 金币，并吸收了 ${growthNames[type]} +${gain} 的成长。`);
-    }
-
-    function battleTick() {
-      const d = dragonStats();
-      const dragonHit = Math.max(1, d.atk - state.enemy.def + Math.floor(Math.random() * 5));
-      const enemyHit = Math.max(1, state.enemy.atk - d.def + Math.floor(Math.random() * 4));
-      state.enemy.currentHp -= dragonHit;
-      flashCard('enemyCard', 'hit');
-      if (state.enemy.currentHp <= 0) {
-        rewardLoot();
-        state.bestFloor = Math.max(state.bestFloor, state.floor);
-        state.floor += 1;
-        spawnEnemy();
-        pulseFloorBadge();
-        if (state.floor % 10 === 0) {
-          setBanner(`第 ${state.floor} 层首领降临，塔内威压陡增。`, 'boss');
-          pulseFloorBadge('boss-floor');
-          const scene = document.getElementById('enemyScene');
-          scene.classList.remove('boss-enter');
-          void scene.offsetWidth;
-          scene.classList.add('boss-enter');
-          setTimeout(() => scene.classList.remove('boss-enter'), 800);
-          playTone(180, 0.18, 'sawtooth', 0.05);
-        }
-        render();
-        return;
-      }
-      state.dragon.hp -= enemyHit;
-      flashCard('playerCard', 'hit');
-      if (state.dragon.hp <= 0) {
-        setBanner(`在第 ${state.floor} 层失利，灵龙正在重整气息。`, 'boss');
-        log(`你的龙在第 ${state.floor} 层被 ${state.enemy.name} 击退，正在原层重整气息。`);
-        state.dragon.hp = d.hp;
-        state.enemy.currentHp = state.enemy.hp;
-      } else {
-        setBanner(`你造成 ${dragonHit} 点伤害，敌人反击 ${enemyHit} 点伤害。`);
-        log(`你造成 ${dragonHit} 点伤害，敌人回击 ${enemyHit} 点伤害。`);
-        playTone(260, 0.04, 'square', 0.02);
-      }
-      saveState();
-      render();
-    }
-
-    function startAuto() {
-      if (state.timer) return;
-      setBanner('灵龙已出战，开始自动登塔。');
-      log('开始挂机爬塔中……');
-      playTone(320, 0.08, 'square', 0.03);
-      state.timer = setInterval(battleTick, 900);
-    }
-
-    function upgradeDragon() {
-      if (state.gold < 40) {
-        log('金币不够，先多打几层。');
-        return;
-      }
-      state.gold -= 40;
-      state.dragon.level += 1;
-      state.dragon.hp = dragonStats().hp;
-      setBanner(`等级提升至 ${state.dragon.level} 级，龙息更加浑厚。`, 'skill');
-      log(`你的龙升到 ${state.dragon.level} 级，基础属性提升。`);
-      saveState();
-      render();
-    }
-
-    function autoEquip() {
-      setBanner('已吸收当前掉落，龙躯得到进一步淬炼。');
-      log('当前掉落会直接吸收到龙身上，形成永久属性成长。');
-      saveState();
-      render();
-    }
-
-    function evolveDragon() {
-      const needLevel = (state.dragon.evolution + 1) * 5;
-      if (state.dragon.level < needLevel) {
-        log(`需要达到 ${needLevel} 级才能进化。`);
-        return;
-      }
-      if (state.dragon.evolution >= 3) {
-        log('当前试玩版已达到最高进化阶段。');
-        return;
-      }
-      state.dragon.evolution += 1;
-      state.dragon.hp = dragonStats().hp;
-      flashCard('playerCard', 'skill-burst');
-      setBanner('龙族进化成功，威压暴涨。', 'skill');
-      log('你的东方龙完成了一次进化，龙威更盛。');
-      saveState();
-      render();
-    }
-
-    function castSkill() {
-      if (!state.enemy) return;
-      const d = dragonStats();
-      let damage = d.atk * 1.5;
-      let name = '龙息';
-      if (state.dragon.level >= 10) {
-        damage = d.atk * 2.6;
-        name = '天火坠';
-      } else if (state.dragon.level >= 5) {
-        damage = d.atk * 2.0;
-        name = '苍雷护体';
-      }
-      state.enemy.currentHp -= Math.floor(damage);
-      flashCard('playerCard', 'skill-burst');
-      flashCard('enemyCard', 'hit');
-      const overlay = document.getElementById('skillOverlay');
-      overlay.classList.remove('active');
-      void overlay.offsetWidth;
-      overlay.classList.add('active');
-      if (state.enemy.currentHp <= 0) {
-        rewardLoot();
-        state.bestFloor = Math.max(state.bestFloor, state.floor);
-        state.floor += 1;
-        spawnEnemy();
-      }
-      const flame = document.querySelector('.pixel-flame');
-      const thunder = document.querySelector('.pixel-thunder');
-      const skyfire = document.querySelector('.pixel-skyfire');
-      flame.style.display = name === '龙息' ? 'block' : 'none';
-      thunder.style.display = name === '苍雷护体' ? 'block' : 'none';
-      skyfire.style.display = name === '天火坠' ? 'block' : 'none';
-      setBanner(`你释放了 ${name}，爆发 ${Math.floor(damage)} 点伤害。`, 'skill');
-      log(`你释放了 ${name}，造成 ${Math.floor(damage)} 点伤害。`);
-      playTone(name === '天火坠' ? 520 : 380, 0.12, name === '苍雷护体' ? 'square' : 'triangle', 0.04);
-      setTimeout(() => document.getElementById('skillOverlay').classList.remove('active'), 600);
-      saveState();
-      render();
-    }
-
 
     function playTone(freq = 440, duration = 0.08, type = 'square', volume = 0.03) {
       try {
@@ -841,38 +335,166 @@
       } catch (e) {}
     }
 
+    function render() {
+      const d = dragonStats();
+      document.getElementById('dragonLevel').textContent = state.dragon.level;
+      document.getElementById('dragonEvolution').textContent = evolutionNames[state.dragon.evolution] || '神龙';
+      document.getElementById('dragonAtk').textContent = d.atk;
+      document.getElementById('dragonHp').textContent = d.hp;
+      document.getElementById('dragonDef').textContent = d.def;
+      document.getElementById('gold').textContent = state.gold;
+      document.getElementById('bestFloor').textContent = state.bestFloor;
+      document.getElementById('floorBadge').textContent = `第 ${state.floor} 层`;
+      document.getElementById('floorBadge').className = state.floor % 10 === 0 ? 'badge boss' : 'badge';
+      document.getElementById('enemyName').textContent = state.enemy.name;
+      document.getElementById('enemyType').textContent = state.enemy.type;
+      document.getElementById('enemyPower').textContent = state.enemy.atk + state.enemy.def;
+      document.getElementById('playerHpText').textContent = `我方生命 ${Math.max(0, state.dragon.hp)} / ${d.hp}`;
+      document.getElementById('enemyHpText').textContent = `敌方生命 ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
+      document.getElementById('playerHpFill').style.width = `${Math.max(0, state.dragon.hp) / d.hp * 100}%`;
+      document.getElementById('enemyHpFill').style.width = `${Math.max(0, state.enemy.currentHp) / state.enemy.hp * 100}%`;
+      document.getElementById('lootAtk').textContent = `攻击 +${state.loot.atk}`;
+      document.getElementById('lootDef').textContent = `防御 +${state.loot.def}`;
+      document.getElementById('lootHp').textContent = `生命 +${state.loot.hp}`;
+      document.getElementById('skill1').textContent = '已解锁';
+      document.getElementById('skill2').textContent = state.dragon.level >= 5 ? '已解锁' : '5 级解锁';
+      document.getElementById('skill3').textContent = state.dragon.level >= 10 ? '已解锁' : '10 级解锁';
+    }
+
+    function rewardLoot() {
+      const type = ['atk', 'def', 'hp'][Math.floor(Math.random() * 3)];
+      const gain = state.floor % 10 === 0 ? 4 : 2;
+      state.loot[type] += gain;
+      state.gold += 12 + state.floor * 4;
+      if (state.floor % 3 === 0) state.dragon.level += 1;
+      setBanner(`突破第 ${state.floor} 层，获得 ${12 + state.floor * 4} 金币，${growthNames[type]}提升 ${gain}。`, state.floor % 10 === 0 ? 'boss' : 'normal');
+      log(`你通过了第 ${state.floor} 层，吸收了 ${growthNames[type]} +${gain} 的成长。`);
+      saveState();
+    }
+
+    function battleTick() {
+      const d = dragonStats();
+      const dragonHit = Math.max(1, d.atk - state.enemy.def + Math.floor(Math.random() * 5));
+      const enemyHit = Math.max(1, state.enemy.atk - d.def + Math.floor(Math.random() * 4));
+      state.enemy.currentHp -= dragonHit;
+      if (state.enemy.currentHp <= 0) {
+        rewardLoot();
+        state.bestFloor = Math.max(state.bestFloor, state.floor);
+        state.floor += 1;
+        spawnEnemy();
+        if (state.floor % 10 === 0) {
+          setBanner(`第 ${state.floor} 层首领降临，塔内威压陡增。`, 'boss');
+          playTone(180, 0.18, 'sawtooth', 0.05);
+        }
+        render();
+        return;
+      }
+      state.dragon.hp -= enemyHit;
+      if (state.dragon.hp <= 0) {
+        setBanner(`在第 ${state.floor} 层失利，灵龙正在重整气息。`, 'boss');
+        log(`你的龙在第 ${state.floor} 层被 ${state.enemy.name} 击退。`);
+        state.dragon.hp = d.hp;
+        state.enemy.currentHp = state.enemy.hp;
+      } else {
+        setBanner(`你造成 ${dragonHit} 点伤害，敌人反击 ${enemyHit} 点伤害。`);
+        log(`战斗继续，你造成 ${dragonHit} 点伤害，敌人回击 ${enemyHit} 点伤害。`);
+        playTone(260, 0.04, 'square', 0.02);
+      }
+      saveState();
+      render();
+    }
+
+    function startAuto() {
+      if (state.timer) return;
+      setBanner('灵龙已出战，开始自动登塔。');
+      log('开始挂机爬塔中……');
+      playTone(320, 0.08, 'square', 0.03);
+      state.timer = setInterval(battleTick, 900);
+    }
+
+    function upgradeDragon() {
+      if (state.gold < 40) {
+        setBanner('金币不足，暂时无法升级。');
+        log('金币不够，先多打几层。');
+        return;
+      }
+      state.gold -= 40;
+      state.dragon.level += 1;
+      state.dragon.hp = dragonStats().hp;
+      setBanner(`等级提升至 ${state.dragon.level} 级，龙息更加浑厚。`, 'skill');
+      log(`你的龙升到 ${state.dragon.level} 级。`);
+      saveState();
+      render();
+    }
+
+    function evolveDragon() {
+      const needLevel = (state.dragon.evolution + 1) * 5;
+      if (state.dragon.level < needLevel) {
+        setBanner(`需要达到 ${needLevel} 级才能进化。`);
+        log(`当前等级不足，无法进化。`);
+        return;
+      }
+      if (state.dragon.evolution >= 3) {
+        setBanner('当前试玩版已达到最高进化阶段。');
+        log('已达到最高进化阶段。');
+        return;
+      }
+      state.dragon.evolution += 1;
+      state.dragon.hp = dragonStats().hp;
+      setBanner('龙族进化成功，威压暴涨。', 'skill');
+      log(`灵龙完成进化，进入 ${evolutionNames[state.dragon.evolution]} 阶段。`);
+      playTone(480, 0.14, 'triangle', 0.04);
+      saveState();
+      render();
+    }
+
+    function castSkill() {
+      if (!state.enemy) return;
+      const d = dragonStats();
+      let damage = d.atk * 1.5;
+      let name = '龙息';
+      if (state.dragon.level >= 10) {
+        damage = d.atk * 2.6;
+        name = '天火坠';
+      } else if (state.dragon.level >= 5) {
+        damage = d.atk * 2.0;
+        name = '苍雷护体';
+      }
+      state.enemy.currentHp -= Math.floor(damage);
+      setBanner(`你释放了 ${name}，爆发 ${Math.floor(damage)} 点伤害。`, 'skill');
+      log(`技能 ${name} 命中敌人，造成 ${Math.floor(damage)} 点伤害。`);
+      playTone(name === '天火坠' ? 520 : 380, 0.12, name === '苍雷护体' ? 'square' : 'triangle', 0.04);
+      if (state.enemy.currentHp <= 0) {
+        rewardLoot();
+        state.bestFloor = Math.max(state.bestFloor, state.floor);
+        state.floor += 1;
+        spawnEnemy();
+      }
+      saveState();
+      render();
+    }
+
     function nextFloor() {
       state.floor += 1;
       spawnEnemy();
-      pulseFloorBadge();
       setBanner(`你已踏入第 ${state.floor} 层。`, state.floor % 10 === 0 ? 'boss' : 'normal');
       log(`你直接前往第 ${state.floor} 层。`);
-      if (state.floor % 10 === 0) {
-        const scene = document.getElementById('enemyScene');
-        scene.classList.remove('boss-enter');
-        void scene.offsetWidth;
-        scene.classList.add('boss-enter');
-        setTimeout(() => scene.classList.remove('boss-enter'), 800);
-        playTone(180, 0.18, 'sawtooth', 0.05);
-      }
-      saveState();
+      if (state.floor % 10 === 0) playTone(180, 0.18, 'sawtooth', 0.05);
       saveState();
       render();
     }
 
     loadState();
     applyOfflineProgress();
-
-    document.getElementById('startBtn').addEventListener('click', startAuto);
-    document.getElementById('upgradeBtn').addEventListener('click', upgradeDragon);
-    document.getElementById('equipBtn').addEventListener('click', autoEquip);
-    document.getElementById('evolveBtn').addEventListener('click', evolveDragon);
-    document.getElementById('skillBtn').addEventListener('click', castSkill);
-    document.getElementById('nextBtn').addEventListener('click', nextFloor);
-
     spawnEnemy();
     render();
     saveState();
+
+    document.getElementById('startBtn').addEventListener('click', startAuto);
+    document.getElementById('upgradeBtn').addEventListener('click', upgradeDragon);
+    document.getElementById('evolveBtn').addEventListener('click', evolveDragon);
+    document.getElementById('skillBtn').addEventListener('click', castSkill);
+    document.getElementById('nextBtn').addEventListener('click', nextFloor);
   </script>
 </body>
 </html>
