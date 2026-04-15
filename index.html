@@ -190,6 +190,43 @@
         0 56px 0 #dc2626, 14px 56px 0 #ef4444, 28px 56px 0 #b91c1c, 42px 56px 0 #b91c1c, 56px 56px 0 #dc2626, 70px 56px 0 #7f1d1d, 84px 56px 0 #7f1d1d,
         14px 70px 0 #b91c1c, 28px 70px 0 #991b1b, 42px 70px 0 #991b1b, 56px 70px 0 #b91c1c, 70px 70px 0 #7f1d1d;
     }
+    .pixel-enemy.beast { background: #2f855a; box-shadow: 12px 0 0 #2f855a, 24px 0 0 #38a169, 36px 0 0 #2f855a, 0 12px 0 #2f855a, 12px 12px 0 #68d391, 24px 12px 0 #68d391, 36px 12px 0 #2f855a, 48px 12px 0 #276749, -12px 24px 0 #9ae6b4, 0 24px 0 #2f855a, 12px 24px 0 #68d391, 24px 24px 0 #1f2937, 36px 24px 0 #68d391, 48px 24px 0 #276749, 60px 24px 0 #276749, -12px 36px 0 #9ae6b4, 0 36px 0 #2f855a, 12px 36px 0 #68d391, 24px 36px 0 #68d391, 36px 36px 0 #2f855a, 48px 36px 0 #276749, 60px 36px 0 #276749, 0 48px 0 #2f855a, 12px 48px 0 #2f855a, 24px 48px 0 #68d391, 36px 48px 0 #2f855a, 48px 48px 0 #276749, 60px 48px 0 #2f855a, 12px 60px 0 #2f855a, 24px 60px 0 #276749, 36px 60px 0 #276749, 48px 60px 0 #2f855a; }
+    .pixel-enemy.wolf { background: #4a5568; box-shadow: 12px 0 0 #4a5568, 24px 0 0 #718096, 36px 0 0 #4a5568, 0 12px 0 #4a5568, 12px 12px 0 #a0aec0, 24px 12px 0 #a0aec0, 36px 12px 0 #4a5568, 48px 12px 0 #2d3748, -12px 24px 0 #e2e8f0, 0 24px 0 #4a5568, 12px 24px 0 #a0aec0, 24px 24px 0 #111827, 36px 24px 0 #a0aec0, 48px 24px 0 #2d3748, 60px 24px 0 #2d3748, -12px 36px 0 #e2e8f0, 0 36px 0 #4a5568, 12px 36px 0 #a0aec0, 24px 36px 0 #a0aec0, 36px 36px 0 #4a5568, 48px 36px 0 #2d3748, 60px 36px 0 #2d3748, 0 48px 0 #4a5568, 12px 48px 0 #4a5568, 24px 48px 0 #a0aec0, 36px 48px 0 #4a5568, 48px 48px 0 #2d3748, 60px 48px 0 #4a5568, 12px 60px 0 #4a5568, 24px 60px 0 #2d3748, 36px 60px 0 #2d3748, 48px 60px 0 #4a5568; }
+    .pixel-enemy.guard { background: #8b5e34; box-shadow: 12px 0 0 #8b5e34, 24px 0 0 #b08968, 36px 0 0 #8b5e34, 0 12px 0 #8b5e34, 12px 12px 0 #ddb892, 24px 12px 0 #ddb892, 36px 12px 0 #8b5e34, 48px 12px 0 #6f4518, -12px 24px 0 #ffe8cc, 0 24px 0 #8b5e34, 12px 24px 0 #ddb892, 24px 24px 0 #1f2937, 36px 24px 0 #ddb892, 48px 24px 0 #6f4518, 60px 24px 0 #6f4518, -12px 36px 0 #ffe8cc, 0 36px 0 #8b5e34, 12px 36px 0 #ddb892, 24px 36px 0 #ddb892, 36px 36px 0 #8b5e34, 48px 36px 0 #6f4518, 60px 36px 0 #6f4518, 0 48px 0 #8b5e34, 12px 48px 0 #8b5e34, 24px 48px 0 #ddb892, 36px 48px 0 #8b5e34, 48px 48px 0 #6f4518, 60px 48px 0 #8b5e34, 12px 60px 0 #8b5e34, 24px 60px 0 #6f4518, 36px 60px 0 #6f4518, 48px 60px 0 #8b5e34; }
+    .skill-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .pixel-flame, .pixel-thunder {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      opacity: 0;
+      image-rendering: pixelated;
+    }
+    .skill-overlay.active .pixel-flame,
+    .skill-overlay.active .pixel-thunder {
+      animation: pixelBurst .55s steps(3) forwards;
+    }
+    .pixel-flame {
+      left: 58%;
+      top: 34%;
+      background: #d97706;
+      box-shadow: 12px 0 0 #f59e0b, 24px 0 0 #fcd34d, 12px -12px 0 #fcd34d, 12px 12px 0 #b45309;
+    }
+    .pixel-thunder {
+      left: 62%;
+      top: 28%;
+      background: #60a5fa;
+      box-shadow: 12px 0 0 #93c5fd, 0 12px 0 #2563eb, 12px 12px 0 #bfdbfe, 24px 12px 0 #2563eb;
+    }
+    @keyframes pixelBurst {
+      0% { opacity: 0; transform: translate(0, 0) scale(1); }
+      25% { opacity: 1; }
+      100% { opacity: 0; transform: translate(44px, -16px) scale(1.3); }
+    }
     .enemy-name-mark {
       position: absolute;
       left: 14px;
@@ -275,20 +312,21 @@
       font-weight: 800;
     }
     .hp-bar {
-      height: 12px;
-      border-radius: 999px;
+      height: 16px;
       overflow: hidden;
-      background: #c7b18a;
+      background: repeating-linear-gradient(90deg, #c7b18a 0 10px, #b79f77 10px 20px);
       margin-top: 10px;
+      border: 2px solid rgba(120, 87, 52, 0.26);
+      box-shadow: inset 0 0 0 2px rgba(250, 240, 212, 0.12);
     }
     .hp-fill {
       height: 100%;
       width: 100%;
-      background: linear-gradient(90deg, #7a9b53, #9fbc68);
+      background: repeating-linear-gradient(90deg, #7a9b53 0 10px, #9fbc68 10px 20px);
       transition: width .25s ease;
     }
     .enemy .hp-fill {
-      background: linear-gradient(90deg, #b85c38, #d8844d);
+      background: repeating-linear-gradient(90deg, #b85c38 0 10px, #d8844d 10px 20px);
     }
     .controls {
       display: flex;
@@ -410,6 +448,10 @@
         </div>
 
         <div class="arena">
+          <div class="skill-overlay" id="skillOverlay">
+            <div class="pixel-flame"></div>
+            <div class="pixel-thunder"></div>
+          </div>
           <div class="fighter player" id="playerCard">
             <div class="dragon-scene" style="width:160px;height:160px;margin:0 auto 12px;">
               <div class="pixel-cloud" style="transform:scale(.58);transform-origin:top left;left:8px;top:16px;"></div>
@@ -489,6 +531,7 @@
     const enemies = ['塔中妖兵', '岩甲地龙', '灰烬妖狼', '幽影鬼卒', '铁甲守将', '夜蛇妖'];
     const enemyMarks = ['妖兵', '地龙', '妖狼', '鬼卒', '守将', '夜蛇'];
     const growthNames = { atk: '攻击', def: '防御', hp: '生命' };
+    const enemySpriteClasses = ['pixel-enemy', 'pixel-enemy beast', 'pixel-enemy wolf', 'pixel-enemy', 'pixel-enemy guard', 'pixel-enemy beast'];
 
     function dragonStats() {
       const evoAtk = state.dragon.evolution * 8;
@@ -560,7 +603,8 @@
       document.getElementById('enemyName').textContent = state.enemy.name;
       document.getElementById('enemyPortraitText').textContent = state.enemy.mark;
       const enemySprite = document.getElementById('enemySprite');
-      enemySprite.className = state.floor % 10 === 0 ? 'pixel-boss' : 'pixel-enemy';
+      const enemyIndex = (state.floor - 1) % enemySpriteClasses.length;
+      enemySprite.className = state.floor % 10 === 0 ? 'pixel-boss' : enemySpriteClasses[enemyIndex];
       document.getElementById('enemyPower').textContent = `战力 ${state.enemy.atk + state.enemy.def}`;
       document.getElementById('enemyHpText').textContent = `生命 ${Math.max(0, state.enemy.currentHp)} / ${state.enemy.hp}`;
       document.getElementById('enemyHpFill').style.width = `${Math.max(0, state.enemy.currentHp) / state.enemy.hp * 100}%`;
@@ -671,6 +715,10 @@
       state.enemy.currentHp -= Math.floor(damage);
       flashCard('playerCard', 'skill-burst');
       flashCard('enemyCard', 'hit');
+      const overlay = document.getElementById('skillOverlay');
+      overlay.classList.remove('active');
+      void overlay.offsetWidth;
+      overlay.classList.add('active');
       if (state.enemy.currentHp <= 0) {
         rewardLoot();
         state.bestFloor = Math.max(state.bestFloor, state.floor);
@@ -679,6 +727,7 @@
       }
       setBanner(`你释放了 ${name}，爆发 ${Math.floor(damage)} 点伤害。`, 'skill');
       log(`你释放了 ${name}，造成 ${Math.floor(damage)} 点伤害。`);
+      setTimeout(() => document.getElementById('skillOverlay').classList.remove('active'), 600);
       render();
     }
 
